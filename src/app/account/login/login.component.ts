@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 // Login Auth
 import { environment } from '../../../environments/environment';
 import { AuthenticationService } from '../../core/services/auth.service';
 import { first } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit {
   year: number = new Date().getFullYear();
 
   constructor(private formBuilder: FormBuilder,private authenticationService: AuthenticationService,private router: Router,
-    private route: ActivatedRoute,) {
+    private route: ActivatedRoute,private http: HttpClient,private api:ApiService,) {
       // redirect to home if already logged in
       if (this.authenticationService.currentUserValue) {
         this.router.navigate(['/']);
@@ -53,19 +55,30 @@ export class LoginComponent implements OnInit {
   /**
    * Form submit
    */
+
    onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     } else {
-      this.authenticationService.login(this.f['email'].value, this.f['password'].value).then((res: any) => {
-        this.router.navigate(['/']);
+      const userObject = {
+        email: this.f['email'].value,
+        password: this.f['password'].value
+      };
+     userObject.email=this.f['email'].value,
+     userObject.password=this.f['password'].value;
+      const uv =JSON.stringify(userObject);
+      console.log(userObject)
+      this.api.login(uv).subscribe((cData: any) => {
+        console.log(cData)
+        
+       
       })
-        .catch(error => {
-          this.error = error ? error : '';
-        });
+      
+   
     }
+   
   }
 
   /**
