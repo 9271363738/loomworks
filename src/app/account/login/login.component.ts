@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
      * Form Validatyion
      */
      this.loginForm = this.formBuilder.group({
-      email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -73,6 +73,10 @@ export class LoginComponent implements OnInit {
    */
    toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
+  }
+
+  next(){
+    this.router.navigate(["/admin"])
   }
 
 }
