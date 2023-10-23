@@ -12,14 +12,14 @@ export const MENU: MenuItem[] = [
     id: 8,
     label: 'Orders',
     icon: 'ri-apps-2-line',
-    link: '/admin/usermaster',
+    link: '/admin/orders',
   },
 
   {
     id: 55,
     label: 'Users',
     icon: 'ri-account-circle-line',
-    link: '/auth/signin/basic',
+    link: '/admin/usermaster',
   },
   {
     id: 55,
