@@ -16,6 +16,11 @@ export const environment = {
     measurementId: ''
   }
 };
+export const environment1 = {
+  production: false,
+  baseURL: 'http://localhost:3000/'
+
+};
 
 /*
  * For easier debugging in development mode, you can import the following file
