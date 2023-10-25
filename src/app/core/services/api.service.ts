@@ -11,18 +11,21 @@ import { environment1 } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
-
-  constructor(public http: HttpClient,) { }
-
-  login(data: any) {
-
-    return this.http.post < any > (`${environment1.baseURL}auth/register`, data, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .pipe(map((data: any) => {
-        return data;
-      }));
+   _header:any;
+  constructor(public http: HttpClient,) { 
+   
+    this._header={
+      'Content-Type':'application/json'
+    };
   }
+
+  login(data:any){
+    console.log(data)
+    return this.http.post<any>(`${environment1.baseURL}auth/authenticate`,data,{
+      headers:this._header
+    })
+    .pipe(map((data,re)=>{
+      return data;
+    }));
+}
 }
