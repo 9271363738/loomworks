@@ -72,8 +72,15 @@ export class LoginComponent implements OnInit {
 
       this.api.login(uv).subscribe((cData: any) => {
         console.log(cData)
+        if(userObject.email=="admin@themesbrand.com")
+        {
 
         this.router.navigate(["/admin/dashboard"])
+        }
+        else{
+          this.router.navigate(["/user/dashboard"])
+
+        }
         
        
       })
