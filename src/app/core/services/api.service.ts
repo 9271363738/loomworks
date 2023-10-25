@@ -16,7 +16,7 @@ export class ApiService {
 
   login(data: any) {
 
-    return this.http.post < any > (`${environment1.baseURL}auth/register`, data, {
+    return this.http.post < any > (`${environment1.baseURL}auth/authenticate`, data, {
         headers: {
           'Content-Type': 'application/json'
         }
