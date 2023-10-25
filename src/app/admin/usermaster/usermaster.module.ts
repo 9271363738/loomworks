@@ -6,6 +6,7 @@ import { UsermasterComponent } from './usermaster.component';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     UsermasterRoutingModule,
     SharedModule,
-    
+    FormsModule
+
     
   ]
 })

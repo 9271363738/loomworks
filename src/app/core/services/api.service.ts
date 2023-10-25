@@ -28,4 +28,13 @@ export class ApiService {
       return data;
     }));
 }
+register(data:any){
+  console.log(data)
+  return this.http.post<any>(`${environment1.baseURL}auth/register`,data,{
+    headers:this._header
+  })
+  .pipe(map((data,re)=>{
+    return data;
+  }));
+}
 }
