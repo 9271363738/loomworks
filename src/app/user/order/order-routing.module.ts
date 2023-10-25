@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { OrderComponent } from './order.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path:"",
     component:OrderComponent
+  },
+  {
+    path:"order-summary",
+    component:OrderSummaryComponent
   }
 ];
 
