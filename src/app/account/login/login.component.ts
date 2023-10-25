@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
      * Form Validatyion
      */
      this.loginForm = this.formBuilder.group({
-      email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -66,18 +66,28 @@ export class LoginComponent implements OnInit {
         email: this.f['email'].value,
         password: this.f['password'].value
       };
-     userObject.email=this.f['email'].value,
-     userObject.password=this.f['password'].value;
+
       const uv =JSON.stringify(userObject);
       console.log(userObject)
+
       this.api.login(uv).subscribe((cData: any) => {
         console.log(cData)
+        if(userObject.email=="admin@themesbrand.com")
+        {
+
+        this.router.navigate(["/admin/dashboard"])
+        }
+        else{
+          this.router.navigate(["/user/dashboard"])
+
+        }
         
        
       })
       
    
     }
+   
    
   }
 
@@ -86,6 +96,10 @@ export class LoginComponent implements OnInit {
    */
    toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
+  }
+
+  next(){
+  
   }
 
 }

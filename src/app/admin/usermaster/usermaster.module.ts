@@ -17,7 +17,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     UsermasterRoutingModule,
-    SharedModule
+    SharedModule,
+    
+    
   ]
 })
 export class UsermasterModule { }
