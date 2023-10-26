@@ -5,7 +5,7 @@ import {
 import {
   map
 } from 'rxjs/operators';
-import { environment1 } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class ApiService {
   _header:any;
   login(data:any){
     console.log(data)
-    return this.http.post<any>(`${environment1.baseURL}auth/authenticate`,data,{
+    return this.http.post<any>(`${environment.baseURL}auth/authenticate`,data,{
       headers:this._header
     })
     .pipe(map((data,re)=>{
@@ -27,7 +27,7 @@ export class ApiService {
 
 register(data:any){
   console.log(data)
-  return this.http.post<any>(`${environment1.baseURL}auth/register`,data,{
+  return this.http.post<any>(`${environment.baseURL}auth/register`,data,{
     headers:this._header
   })
   .pipe(map((data,re)=>{

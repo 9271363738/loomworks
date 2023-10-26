@@ -4,23 +4,9 @@
 
 export const environment = {
   production: false,
-  defaultauth: 'fackbackend',
-  firebaseConfig: {
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    projectId: '',
-    storageBucket: '',
-    messagingSenderId: '',
-    appId: '',
-    measurementId: ''
-  }
-};
-export const environment1 = {
-  production: false,
   baseURL: 'http://localhost:3000/'
-
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

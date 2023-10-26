@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { getFirebaseBackend } from '../../authUtils';
 import { User } from '../models/auth.models';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 
@@ -9,60 +13,43 @@ import { User } from '../models/auth.models';
  */
 export class AuthenticationService {
 
-    user!: User;
-    currentUserValue: any;
-
-    constructor() { }
-
-    /**
-     * Performs the register
-     * @param email email
-     * @param password password
-     */
-    register(email: string, password: string) {
-        return getFirebaseBackend()!.registerUser(email, password).then((response: any) => {
-            const user = response;
-            return user;
-        });
+    private currentUserSubject: BehaviorSubject<User>;
+    private currentUser:Observable<User>
+    constructor(public http: HttpClient) {
+        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')!));
+        this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    /**
-     * Performs the auth
-     * @param email email of user
-     * @param password password of user
-     */
-    login(email: string, password: string) {
-        return getFirebaseBackend()!.loginUser(email, password).then((response: any) => {
-            const user = response;
-            return user;
-        });
+    public get currentUserValue() : User{
+        return this.currentUserSubject.value;
     }
 
-    /**
-     * Returns the current user
-     */
-    public currentUser(): any {
-        return getFirebaseBackend()!.getAuthenticatedUser();
+    login(data:any){
+        console.log(data)
+        return this.http.post<any>(`${environment.baseURL}auth/authenticate`,data,{
+          headers:{
+            'Content-Type':'application/json'
+          }
+        })
+        .pipe(map((data,re)=>{
+            localStorage.setItem("currentUser",JSON.stringify(data.data));
+            this.currentUserSubject.next(data.data);
+          return data;
+        }));
     }
+
+    
+    
 
     /**
      * Logout the user
      */
     logout() {
-        // logout the user
-        return getFirebaseBackend()!.logout();
+        localStorage.removeItem("currentUser");
+        this.currentUserSubject.next(null!);
+        window.location.replace("/")
     }
 
-    /**
-     * Reset password
-     * @param email email
-     */
-    resetPassword(email: string) {
-        return getFirebaseBackend()!.forgetPassword(email).then((response: any) => {
-            const message = response.data;
-            return message;
-        });
-    }
 
 }
 
