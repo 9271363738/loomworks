@@ -38,7 +38,7 @@ register(data:any){
 
   // Create Itom
   createItem(data: any) {
-    return this.http.post < any > (`${environment1.baseURL}item`, data, {
+    return this.http.post < any > (`${environment.baseURL}item`, data, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -52,7 +52,7 @@ register(data:any){
 
 // Get all Itom
   gatAllItem() {
-    return this.http.post < any > (`${environment1.baseURL}item`, {
+    return this.http.post < any > (`${environment.baseURL}item`, {
       })
       .pipe(map((data: any) => {
         return data;
@@ -62,7 +62,7 @@ register(data:any){
 
   // Update Itom
   updateItem(id:any,data:any){
-    return this.http.put<any>(`${environment1.baseURL}item/`+id,data,{
+    return this.http.put<any>(`${environment.baseURL}item/`+id,data,{
       headers: {
         'Content-Type': 'application/json'
       }
@@ -76,7 +76,7 @@ register(data:any){
 
 // DeleteItom
   deleteItem(id:any){
-    return this.http.delete<any>(`${environment1.baseURL}item/`+id,{
+    return this.http.delete<any>(`${environment.baseURL}item/`+id,{
   })
   .pipe(map((data:any)=>{
     return data;
@@ -87,7 +87,7 @@ register(data:any){
 
   // Create dealers
   createDealers(data: any) {
-    return this.http.post < any > (`${environment1.baseURL}dealers`, data, {
+    return this.http.post < any > (`${environment.baseURL}dealers`, data, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -101,7 +101,7 @@ register(data:any){
 
   // Get Dealers
   gatAllDealers() {
-    return this.http.get < any > (`${environment1.baseURL}dealers`, {
+    return this.http.get < any > (`${environment.baseURL}dealers`, {
       })
       .pipe(map((data: any) => {
         return data;
@@ -112,7 +112,7 @@ register(data:any){
 
   // Update Dealers
   updateDealers(id:any,data:any){
-    return this.http.put<any>(`${environment1.baseURL}dealers/`+id,data,{
+    return this.http.put<any>(`${environment.baseURL}dealers/`+id,data,{
       headers: {
         'Content-Type': 'application/json'
       }
@@ -126,7 +126,7 @@ register(data:any){
 
   // delete Dealers
   deleteDealers(id:any){
-    return this.http.delete<any>(`${environment1.baseURL}dealers/`+id,{
+    return this.http.delete<any>(`${environment.baseURL}dealers/`+id,{
   })
   .pipe(map((data:any)=>{
     return data;
@@ -137,7 +137,7 @@ register(data:any){
 
 // Get all Orders
 createOrders(data:any) {
-  return this.http.post < any > (`${environment1.baseURL}orders`, data,{
+  return this.http.post < any > (`${environment.baseURL}orders`, data,{
     headers: {
       'Content-Type': 'application/json'
     }
@@ -151,7 +151,7 @@ createOrders(data:any) {
 
   // Get Orders
   gatAllOrders() {
-    return this.http.get < any > (`${environment1.baseURL}orders`, {
+    return this.http.get < any > (`${environment.baseURL}orders`, {
       })
       .pipe(map((data: any) => {
         return data;
@@ -162,7 +162,7 @@ createOrders(data:any) {
 
   // Update Orders
   updateOrders(id:any,data:any){
-    return this.http.put<any>(`${environment1.baseURL}orders/`+id,data,{
+    return this.http.put<any>(`${environment.baseURL}orders/`+id,data,{
       headers: {
         'Content-Type': 'application/json'
       }
@@ -176,7 +176,7 @@ createOrders(data:any) {
 
 // Delete Orders
 deleteOrders(id:any){
-  return this.http.delete<any>(`${environment1.baseURL}orders/`+id,{
+  return this.http.delete<any>(`${environment.baseURL}orders/`+id,{
 })
 .pipe(map((data:any)=>{
   return data;
