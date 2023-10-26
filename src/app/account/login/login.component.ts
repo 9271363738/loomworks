@@ -66,18 +66,28 @@ export class LoginComponent implements OnInit {
         email: this.f['email'].value,
         password: this.f['password'].value
       };
-     userObject.email=this.f['email'].value,
-     userObject.password=this.f['password'].value;
+
       const uv =JSON.stringify(userObject);
       console.log(userObject)
+
       this.api.login(uv).subscribe((cData: any) => {
         console.log(cData)
+        if(userObject.email=="admin@themesbrand.com")
+        {
+
+        this.router.navigate(["/admin/dashboard"])
+        }
+        else{
+          this.router.navigate(["/user/dashboard"])
+
+        }
         
        
       })
       
    
     }
+   
    
   }
 
@@ -89,7 +99,7 @@ export class LoginComponent implements OnInit {
   }
 
   next(){
-    this.router.navigate(["/admin"])
+  
   }
 
 }

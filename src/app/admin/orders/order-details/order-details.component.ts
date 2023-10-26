@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderDetailsComponent implements OnInit {
 
-  constructor() { }
+  breadCrumbItems!: Array<{}>;
+
+  constructor() {
+
+   }
 
   ngOnInit(): void {
-  }
+    /**
+    * BreadCrumb
+    */
+     this.breadCrumbItems = [
+      { label: 'Ecommerce' },
+      { label: 'Order Details', active: true }
+    ];
 
+  }
 }

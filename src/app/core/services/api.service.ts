@@ -11,7 +11,7 @@ import { environment1 } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
-
+   
   constructor(public http: HttpClient,) { }
 
   login(data: any) {
@@ -19,7 +19,7 @@ export class ApiService {
     return this.http.post < any > (`${environment1.baseURL}auth/register`, data, {
         headers: {
           'Content-Type': 'application/json'
-        }
+    }
       })
       .pipe(map((data: any) => {
         return data;
@@ -137,6 +137,7 @@ createOrders(data:any) {
     .pipe(map((data: any) => {
       return data;
     }));
+
 }
 
 
