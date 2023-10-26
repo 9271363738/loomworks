@@ -19,5 +19,22 @@ export class ApiService {
     };
   }
 
-  
+  login(data:any){
+    console.log(data)
+    return this.http.post<any>(`${environment.baseURL}auth/authenticate`,data,{
+      headers:this._header
+    })
+    .pipe(map((data,re)=>{
+      return data;
+    }));
+}
+register(data:any){
+  console.log(data)
+  return this.http.post<any>(`${environment.baseURL}auth/register`,data,{
+    headers:this._header
+  })
+  .pipe(map((data,re)=>{
+    return data;
+  }));
+}
 }

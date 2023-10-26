@@ -1,1 +1,104 @@
-<p>userdetails works!</p>
+<!-- Start Breadcrumbs -->
+
+<!-- End Breadcrumbs -->
+
+<div class="row justify-content-center">
+    <div class="col-xxl-9">
+        <div class="card" id="demo">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-header border-bottom-dashed p-4">
+                        <div class="d-flex flex-wrap">
+                            <div class="flex-grow-1">
+                                <img src="https://www.loomworks.net/wp-content/uploads/2022/07/Loomworks_Black_Logo-02.png"  class="card-logo card-logo-dark" alt="logo dark"
+                                    height="17">
+                                <img src="assets/images/logo-light.png" class="card-logo card-logo-light"
+                                    alt="logo light" height="17">
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <!--end card-header-->
+                </div><!--end col-->
+                <div class="col-lg-12">
+                    <div class="card-body p-4">
+                        <div class="row g-3">
+                            <div class="col-lg-3 col-6">
+                                <p class="text-muted mb-2 text-uppercase fw-semibold">Dealer Id</p>
+                                <h5 class="fs-14 mb-0"><span id="invoice-no"></span></h5>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-3 col-6">
+                                <p class="text-muted mb-2 text-uppercase fw-semibold">Date Created  </p>
+                                <h5 class="fs-14 mb-0"><span id="invoice-date"></span> <small
+                                        class="text-muted" id="invoice-time"></small></h5>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-3 col-6">
+                                <p class="text-muted mb-2 text-uppercase fw-semibold">Name</p>
+                                <span class="badge badge-soft-success fs-11" id="payment-status"></span>
+                            </div>
+                            <!--end col-->
+                            <div class="col-lg-3 col-6">
+                                <p class="text-muted mb-2 text-uppercase fw-semibold">Email</p>
+                                <span class="badge badge-soft-success fs-11" id="payment-status"></span>
+                            </div>
+                            <!--end col-->
+
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end card-body-->
+                </div><!--end col-->
+                <div class="col-lg-12">
+                    <div class="card-body p-4 border-top border-top-dashed">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <h6 class="text-muted text-uppercase fw-semibold mb-3">Billing Address</h6>
+                                <p class="fw-medium mb-2" id="billing-name"></p>
+                                <p class="text-muted mb-1" id="billing-address-line-1"></p>
+                                <p class="text-muted mb-1"><span>Phone: </span><span id="billing-phone-no">
+                                        </span></p>
+                                <p class="text-muted mb-0"><span> </span><span id="billing-tax-no"></span>
+                                </p>
+                            </div>
+                            <!--end col-->
+                            <div class="col-6">
+                                <h6 class="text-muted text-uppercase fw-semibold mb-3">Shipping Address</h6>
+                                <p class="fw-medium mb-2" id="shipping-name"></p>
+                                <p class="text-muted mb-1" id="shipping-address-line-1"></p>
+                                <p class="text-muted mb-1"><span>Phone: </span><span id="shipping-phone-no">
+                                        </span></p>
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end card-body-->
+                </div><!--end col-->
+                <div class="col-lg-12">
+                    <div class="card-body p-4">
+                        
+                        
+                       
+                        <div class="mt-4">
+                            
+                        </div>
+                        <div class="hstack gap-2 justify-content-end d-print-none mt-4"  [routerLink]="['/admin/usermaster/createuser']">
+                            <button  class="btn btn-success"><i
+                           
+                            class="ri-edit-fill align-bottom me-1" 
+                                    ></i> Edit</button>
+                            <button  class="btn btn-primary" [routerLink]="['/admin/usermaster']" ><i class="ri-download-2-line align-bottom me-1"></i>Save</button>
+                        </div>
+                    </div>
+                    <!--end card-body-->
+                </div><!--end col-->
+            </div><!--end row-->
+        </div>  
+        <!--end card-->
+    </div>
+    <!--end col-->
+</div>
+<!--end row-->
