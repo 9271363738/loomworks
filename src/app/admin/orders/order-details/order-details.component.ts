@@ -9,6 +9,7 @@ export class OrderDetailsComponent implements OnInit {
 
   breadCrumbItems!: Array<{}>;
 
+
   constructor() {
 
    }
@@ -22,5 +23,17 @@ export class OrderDetailsComponent implements OnInit {
       { label: 'Order Details', active: true }
     ];
 
+  }
+  buttonpending=true;
+  buttonsuccess=false;
+  change()
+  {
+    this.buttonsuccess=true;
+    this.buttonpending=false;
+  }
+  cancel()
+  {
+    this.buttonpending=false;
+    this.buttonsuccess=false;
   }
 }
