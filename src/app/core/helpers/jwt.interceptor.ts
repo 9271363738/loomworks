@@ -20,17 +20,14 @@ export class JwtInterceptor implements HttpInterceptor {
         request: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        if (environment.defaultauth === 'firebase') {
-            // add authorization header with jwt token if available
-            let currentUser = this.authenticationService.currentUser();
-            if (currentUser && currentUser.token) {
+       /* let currentUser = this.authenticationService.currentUserValue;
+            if (currentUser && currentUser.accessToken) {
                 request = request.clone({
                     setHeaders: {
-                        Authorization: `Bearer ${currentUser.token}`,
+                        'x-access-token ': currentUser.accessToken,
                     },
                 });
-            }
-        } 
+            }*/
         return next.handle(request);
     }
 }

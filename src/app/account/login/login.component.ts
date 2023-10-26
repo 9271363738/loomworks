@@ -31,10 +31,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,private authenticationService: AuthenticationService,private router: Router,
     private route: ActivatedRoute,private http: HttpClient,private api:ApiService,) {
-      // redirect to home if already logged in
-      if (this.authenticationService.currentUserValue) {
-        this.router.navigate(['/']);
-      }
+      
      }
 
   ngOnInit(): void {
@@ -70,9 +67,10 @@ export class LoginComponent implements OnInit {
       const uv =JSON.stringify(userObject);
       console.log(userObject)
 
-      this.api.login(uv).subscribe((cData: any) => {
+      this.authenticationService.login(uv).subscribe((cData: any) => {
         console.log(cData)
-        if(userObject.email=="admin@themesbrand.com")
+        this.router.navigate(["/admin/dashboard"])
+       /* if(userObject.email=="admin@themesbrand.com")
         {
 
         this.router.navigate(["/admin/dashboard"])
@@ -80,7 +78,7 @@ export class LoginComponent implements OnInit {
         else{
           this.router.navigate(["/user/dashboard"])
 
-        }
+        }*/
         
        
       })
