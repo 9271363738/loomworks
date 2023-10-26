@@ -202,11 +202,14 @@
         </a>
       
           <!-- Second "Cancel Order" button -->
-          <a href="javascript:void(0);" class="btn btn-danger mt-2 mt-sm-0 ms-5" (click)="cancel()">
-              <i class="mdi mdi-success align-center me-1"></i>
-              <span *ngIf="!buttonpending && !buttonsuccess; else elseblock">order cancelled</span><ng-template #elseblock>cancel order</ng-template> 
+          <a href="javascript:void(0);" class="btn btn-danger mt-2 mt-sm-0 ms-5 " (click)="cancel()" *ngIf="cancelbutton">
+              <i class="mdi mdi-success align-center me-1"></i>Cancel Order
             
           </a>
+          <a href="javascript:void(0);" class="btn btn-danger mt-2 mt-sm-0 ms-3" style="width:90%"  *ngIf="!buttonpending && !buttonsuccess">
+            <i class="mdi mdi-success align-center me-1"></i>Order Cancelled
+          
+        </a>
       </div>
       
       </div>

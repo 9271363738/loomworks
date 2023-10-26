@@ -26,14 +26,17 @@ export class OrderDetailsComponent implements OnInit {
   }
   buttonpending=true;
   buttonsuccess=false;
+  cancelbutton=true;
   change()
   {
     this.buttonsuccess=true;
     this.buttonpending=false;
+   
   }
   cancel()
   {
     this.buttonpending=false;
     this.buttonsuccess=false;
+    this.cancelbutton=false;
   }
 }
