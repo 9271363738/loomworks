@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 // Login Auth
 import { environment } from '../../../environments/environment';
 import { AuthenticationService } from '../../core/services/auth.service';
 import { first } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -28,11 +30,8 @@ export class LoginComponent implements OnInit {
   year: number = new Date().getFullYear();
 
   constructor(private formBuilder: FormBuilder,private authenticationService: AuthenticationService,private router: Router,
-    private route: ActivatedRoute,) {
-      // redirect to home if already logged in
-      if (this.authenticationService.currentUserValue) {
-        this.router.navigate(['/']);
-      }
+    private route: ActivatedRoute,private http: HttpClient,private api:ApiService,) {
+      
      }
 
   ngOnInit(): void {
@@ -40,8 +39,8 @@ export class LoginComponent implements OnInit {
      * Form Validatyion
      */
      this.loginForm = this.formBuilder.group({
-      email: ['admin@themesbrand.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -53,19 +52,41 @@ export class LoginComponent implements OnInit {
   /**
    * Form submit
    */
+
    onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     } else {
-      this.authenticationService.login(this.f['email'].value, this.f['password'].value).then((res: any) => {
-        this.router.navigate(['/']);
+      const userObject = {
+        email: this.f['email'].value,
+        password: this.f['password'].value
+      };
+
+      const uv =JSON.stringify(userObject);
+      console.log(userObject)
+
+      this.authenticationService.login(uv).subscribe((cData: any) => {
+        console.log(cData)
+        this.router.navigate(["/admin/dashboard"])
+       /* if(userObject.email=="admin@themesbrand.com")
+        {
+
+        this.router.navigate(["/admin/dashboard"])
+        }
+        else{
+          this.router.navigate(["/user/dashboard"])
+
+        }*/
+        
+       
       })
-        .catch(error => {
-          this.error = error ? error : '';
-        });
+      
+   
     }
+   
+   
   }
 
   /**
@@ -73,6 +94,10 @@ export class LoginComponent implements OnInit {
    */
    toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
+  }
+
+  next(){
+  
   }
 
 }

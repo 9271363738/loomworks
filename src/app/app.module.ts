@@ -17,6 +17,7 @@ import { JwtInterceptor } from './core/helpers/jwt.interceptor';
 // Language
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { OrderSummaryComponent } from './user/order/order-summary/order-summary.component';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -25,7 +26,8 @@ export function createTranslateLoader(http: HttpClient): any {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OrderSummaryComponent
   ],
   imports: [
     TranslateModule.forRoot({

@@ -6,11 +6,11 @@ import { UsermasterComponent } from './usermaster.component';
 
 const routes: Routes = [
   {
-    path:"createuser",
+    path:"createuser/:action",
     component:CreateuserComponent
   },
   {
-    path:"userdetails",
+    path:"userdetails/:id",
     component:UserdetailsComponent
   },
   {

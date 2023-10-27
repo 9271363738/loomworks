@@ -1,1 +1,254 @@
-<p>order-details works!</p>
+
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs title="Order Details"></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+
+<div class="row">
+  <div class="col-xl-9">
+      <div class="card">
+          <div class="card-header">
+             <div class="d-flex align-items-center">
+                  <h5 class="card-title flex-grow-1 mb-0">Order Id</h5>
+                  
+             </div>
+          </div>
+          <div class="card-body">
+              <div class="table-responsive table-card">
+                  <table class="table table-nowrap align-middle table-borderless mb-0">
+                      <thead class="table-light text-muted">
+                          <tr>
+                            <th scope="col">Product Details</th>
+                            <th scope="col">Item Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Rating</th>
+                            <th scope="col" class="text-end">Total Amount</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                          <tr>
+                              <td>
+                                  </td>
+                             
+                          </tr>
+                          <tr>
+                              <td>
+                                  <div class="d-flex">
+                                      
+                                     <div class="flex-grow-1 ms-3">
+                                         
+                                     </div>
+                                  </div>
+                              </td>
+                              
+                              <td class="fw-medium text-end">
+                                  
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <div class="d-flex">
+                                      
+                                     <div class="flex-grow-1 ms-3">
+                                          
+                                     </div>
+                                  </div>
+                              
+                                  <div class="text-warning fs-15">
+                                  </div>
+                              
+                          </tr>
+                          <tr class="border-top border-top-dashed">
+                             
+                                      </tbody>
+                                  </table>
+                              
+              </div>
+          </div>
+      </div><!--end card-->
+      <div class="card">
+          <div class="card-header">
+              <div class="d-sm-flex align-items-center">
+                  <h5 class="card-title flex-grow-1 mb-0">Order Status</h5>
+              
+              </div>
+          </div>
+          <div class="card-body">
+              <div class="profile-timeline">
+                <ngb-accordion #acc="ngbAccordion" activeIds="static-1" [closeOthers]="true">
+                  <ngb-panel id="static-1">
+                      <ng-template ngbPanelTitle>
+                        <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse" href="javasccript:void(0;)" aria-expanded="true" aria-controls="collapseOne">
+                          <div class="d-flex align-items-center">
+                              <div class="flex-shrink-0 avatar-xs">
+                                  <div class="avatar-title bg-success rounded-circle">
+                                      <i class="ri-shopping-bag-line"></i>
+                                  </div>
+                              </div>
+                              <div class="flex-grow-1 ms-3">
+                                  <h6 class="fs-15 mb-0 fw-semibold">Order Placed -</h6>
+                              </div>
+                          </div>
+                        </a>
+                      </ng-template>
+                      <ng-template ngbPanelContent>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                          <div class="accordion-body ms-2 ps-5 pt-0">
+                        </div>
+                        </div>
+                      </ng-template>
+                  </ngb-panel>
+                  <ngb-panel id="static-2">
+                    <ng-template ngbPanelTitle>
+                      <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse" href="javasccript:void(0;)" aria-expanded="false" aria-controls="collapseTwo">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 avatar-xs">
+                                <div class="avatar-title bg-success rounded-circle">
+                                    <i class="mdi mdi-gift-outline"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="fs-15 mb-1 fw-semibold">Packed - </h6>
+                            </div>
+                        </div>
+                    </a>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                      <div class="accordion-body ms-2 ps-5 pt-0">
+                        <h6 class="mb-1">Your Item has been picked up by courier patner</h6>
+                        <p class="text-muted mb-0">Fri, 17 Dec 2021 - 9:45AM</p>
+                      </div>
+                    </ng-template>
+                  </ngb-panel>
+                  <ngb-panel id="static-3">
+                    <ng-template ngbPanelTitle>
+                      <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse" href="javasccript:void(0;)" aria-expanded="false" aria-controls="collapseThree">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 avatar-xs">
+                                <div class="avatar-title bg-success rounded-circle">
+                                    <i class="ri-truck-line"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="fs-15 mb-1 fw-semibold">Shipping -</h6>
+                            </div>
+                        </div>
+                      </a>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                      <div class="accordion-body ms-2 ps-5 pt-0">
+                        <h6 class="fs-14">RQK Logistics - MFDS1400457854</h6>
+                        <h6 class="mb-1">Your item has been shipped.</h6>
+                        <p class="text-muted mb-0">Sat, 18 Dec 2021 - 4.54PM</p>
+                      </div>
+                    </ng-template>
+                  </ngb-panel>
+                  <ngb-panel id="static-4">
+                    <ng-template ngbPanelTitle>
+                      <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse" href="javasccript:void(0;)" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 avatar-xs">
+                                <div class="avatar-title bg-light text-success rounded-circle">
+                                    <i class="ri-takeaway-fill"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="fs-14 mb-0 fw-semibold">Out For Delivery</h6>
+                            </div>
+                        </div>
+                      </a>
+                    </ng-template>
+                  </ngb-panel>
+                  <ngb-panel id="static-5">
+                    <ng-template ngbPanelTitle>
+                      <a class="accordion-button p-2 shadow-none" data-bs-toggle="collapse" href="javasccript:void(0;)" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 avatar-xs">
+                                <div class="avatar-title bg-light text-success rounded-circle">
+                                    <i class="mdi mdi-package-variant"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="fs-14 mb-0 fw-semibold">Delivered</h6>
+                            </div>
+                        </div>
+                      </a>
+                    </ng-template>
+                  </ngb-panel>
+                </ngb-accordion>
+              </div>
+          </div>
+      </div><!--end card-->
+  </div><!--end col-->
+  <div class="col-xl-3 ">
+    <div class="card">
+      <div class="card-header">
+          <div class="d-flex">
+              <h5 class="card-title flex-grow-1 mb-0"><i class="mdi mdi-truck-fast-outline align-middle me-1 text-muted"></i>Order-Status</h5>
+              <div class="flex-shrink-0">
+                  <a href="javascript:void(0);" class="badge badge-soft-primary fs-11">Track Order</a>
+              </div>
+          </div>
+      </div>
+      <div class="card-body">
+        <div class="d-flex gap-5">
+          <!-- First "Pending" button with a symbol -->
+          <a href="javascript:void(0);" class="btn btn-warning mt-2 mt-sm-0 me-5" *ngIf="buttonpending" (click)="change()" >
+              <i class="mdi mdi-timer align-middle me-1 "></i>
+              Pending
+          </a>
+          <a href="javascript:void(0);" class="btn btn-success mt-2 mt-sm-0 me-5" *ngIf="buttonsuccess">
+            <i class="mdi mdi-over align-middle me-1"></i>
+            Success
+        </a>
+      
+          <!-- Second "Cancel Order" button -->
+          <a href="javascript:void(0);" class="btn btn-danger mt-2 mt-sm-0 ms-5 " (click)="cancel()" *ngIf="cancelbutton">
+              <i class="mdi mdi-success align-center me-1"></i>Cancel Order
+            
+          </a>
+          <a href="javascript:void(0);" class="btn btn-danger mt-2 mt-sm-0 ms-3" style="width:90%"  *ngIf="!buttonpending && !buttonsuccess">
+            <i class="mdi mdi-success align-center me-1"></i>Order Cancelled
+          
+        </a>
+      </div>
+      
+      </div>
+  </div><!--end card-->
+  
+
+      <div class="card">
+          <div class="card-header">
+             <div class="d-flex">
+                  <h5 class="card-title flex-grow-1 mb-0">Customer Details</h5>
+                  <div class="flex-shrink-0">
+                      <a href="javascript:void(0);" class="link-secondary">View Profile</a>
+                  </div>
+              </div>
+          </div>
+          <div class="card-body">
+          </div>
+      </div><!--end card-->
+      <div class="card">
+          <div class="card-header">
+              <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Billing Address</h5>
+          </div>
+          <div class="card-body">
+          </div>
+      </div><!--end card-->
+      <div class="card">
+          <div class="card-header">
+              <h5 class="card-title mb-0"><i class="ri-map-pin-line align-middle me-1 text-muted"></i> Shipping Address</h5>
+          </div>
+          <div class="card-body">
+              </div>
+      </div><!--end card-->
+
+      <div class="card">
+          <div class="card-header">
+              <h5 class="card-title mb-0"><i class="ri-secure-payment-line align-bottom me-1 text-muted"></i> Payment Details</h5>
+          </div>
+          <div class="card-body">
+              
+      </div><!--end card-->
+  </div><!--end col-->
+</div><!--end row-->

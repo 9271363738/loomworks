@@ -7,6 +7,8 @@ import { CreateOrderComponent } from './create-order/create-order.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +22,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     OrderRoutingModule,
 
     NgbNavModule,
-    NgSelectModule
+    NgSelectModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class OrderModule { }
