@@ -5,6 +5,8 @@ import { ItemmasterRoutingModule } from './itemmaster-routing.module';
 import { ItemmasterComponent } from './itemmaster.component';
 import { CreateItemComponent } from './create-item/create-item.component';
 import { DetailsItemComponent } from './details-item/details-item.component';
+import { FormsModule } from '@angular/forms';
+import { NgSelectComponent, NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { DetailsItemComponent } from './details-item/details-item.component';
   ],
   imports: [
     CommonModule,
-    ItemmasterRoutingModule
+    ItemmasterRoutingModule,
+    FormsModule,
+    NgSelectModule
   ]
 })
 export class ItemmasterModule { }

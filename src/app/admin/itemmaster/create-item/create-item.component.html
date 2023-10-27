@@ -17,7 +17,7 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="firstNameinput" class="form-label" > Name</label>
-                                <input type="text" class="form-control" placeholder="Enter your Name" id="firstNameinput">
+                                <input type="text" class="form-control" placeholder="Enter your Name" id="firstNameinput" [(ngModel)]="Name">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
@@ -88,12 +88,12 @@
                                         </tr>
                                     </thead>
                                     <tbody id="newlink">
-                                        <tr id="1" class="product" *ngFor="let item of sizes">
+                                        <tr id="1" class="product" *ngFor="let item of sizes;let i = index">
                                             <td class="text-start">
                                                     <input type="tel" class="form-control" placeholder="Name" id="">
                                             </td>
                                             <td class="product-removal">
-                                                <a href="javascript:void(0)" class="btn btn-success">Delete</a>
+                                                <a (click)="deleteSize(i)" class="btn btn-success">Delete</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -112,7 +112,7 @@
                                 
                 <div class="col-lg-12">
                     <div class="text-end">
-                        <button style="margin: 0px;;" type="submit" class="btn btn-primary">Submit</button>
+                        <button style="margin: 0px;;" type="submit" class="btn btn-primary"(click)="CreateItom()">Submit</button>
                     </div>
                 </div><!--end col-->
             </div>
