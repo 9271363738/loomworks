@@ -1,5 +1,8 @@
+import { ItemmasterComponent } from './../../../admin/itemmaster/itemmaster.component';
+import { User } from './../../../core/models/auth.models';
 import { Component, OnInit } from '@angular/core';
 import { Validators, AbstractControl, FormBuilder, FormArray, FormGroup } from '@angular/forms';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-create-order',
@@ -20,9 +23,16 @@ export class CreateOrderComponent implements OnInit {
   discountRate = 0.15;
 
   userForm: any;
+  user:any=[];
+  CustomerNo:any="";
+  PONo:any="";
+  poDate:any="";
+  date:any="";
+  list:any=[];
+  
   
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder,private api:ApiService) { 
 
     this.userForm = this.formBuilder.group({
       items: this.formBuilder.array([
@@ -33,26 +43,7 @@ export class CreateOrderComponent implements OnInit {
     /**
      * Form Validation
      */
-     this.InvoicesForm = this.formBuilder.group({
-      companyAddress: ['', [Validators.required]],
-      companyaddpostalcode: ['', [Validators.required]],
-      registrationNumber: ['', [Validators.required]],
-      companyEmail: ['', [Validators.required]],
-      companyWebsite: ['', [Validators.required]],
-      compnayContactno: ['', [Validators.required]],
-      billingName: ['', [Validators.required]],
-      billingAddress: ['', [Validators.required]],
-      billingPhoneno: ['', [Validators.required]],
-      billingTaxno: ['', [Validators.required]],
-      same: ['', [Validators.required]],
-      shippingName: ['', [Validators.required]],
-      shippingAddress: ['', [Validators.required]],
-      shippingPhoneno: ['', [Validators.required]],
-      shippingTaxno: ['', [Validators.required]],
-      productName: ['', [Validators.required]],
-      rate: ['', [Validators.required]],
-      items: [''],
-    });    
+
   }
 
 
@@ -64,11 +55,35 @@ export class CreateOrderComponent implements OnInit {
     */
      this.breadCrumbItems = [
       { label: 'Invoices' },
-      { label: 'Invoice Details', active: true }
+      // { label: 'Invoice Details', active: true }``
     ];
 
+    this.api.getAllDealers({}).subscribe((cdata:any)=>{
+      this.user=cdata.dealers
+     // console.log(this.user);
+    })
+    this.api.gatAllItem({}).subscribe((cData:any)=>{
+      this.list=cData.item
+      console.log(this.list);
+    })
     
 
+  }
+  next(){
+    const data=JSON.stringify({
+      date:this.date,
+      poDate:this.poDate,
+      customerNo:this.CustomerNo,
+      poNo:this.PONo,
+
+
+
+    })
+    console.log(data);
+    this.api.createOrders(data).subscribe((cData:any)=>{
+      console.log(cData)
+
+    })
   }
 
   /**
