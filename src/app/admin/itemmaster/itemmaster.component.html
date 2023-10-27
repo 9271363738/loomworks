@@ -11,66 +11,81 @@
                         </div>
 
                     </div>
+                    <div class="col-sm-auto hstack gap-2">
+                        <button
+                            [routerLink]="['/admin/itemmaster/create-item']"
+                            type="button"
+                            data-bs-toggle="modal"
+                            id="create-btn"
+                            data-bs-target="#showModal"
+                            class="btn btn-success add-btn float-right">
+                            <i class="ri-add-line align-bottom me-1"></i>
+                            Add</button>
+                </div>
+                </div>
+                <div class="card-body">
+                    <div id="customerList">
+                        <div class="row g-4 mb-3">
+                            
+    
+                            <div class="table-responsive table-card mt-3 mb-1">
+                                <table class="table">
+                                    <thead>
+                                        <tr class="bg-light text-muted">
+                                            <th scope="col" style="width: 50px;"></th>
+                                            <th class="sort" data-sort="customer_name">Sr.No</th>
+                                            <th class="sort" data-sort="customer_name">Brand</th>
+                                            <th class="sort" data-sort="email">SKU's</th>
+                                            <th class="sort" data-sort="phone">Description</th>
+                                            <th class="sort" data-sort="date">Color</th>
+                                            <th class="sort" data-sort="status">HSN code</th>
+                                            <th class="sort">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of data">
+                                            <th scope="row"></th>
+                                            <td></td>
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.sku}}</td>
+                                            <td>{{item.description}}</td>
+                                            <td>{{item.color}}</td>
+                                            <td>{{item.Hsncode}}</td>
+                                            <td>{{item.price}}</td>
+                                            <td class="status">
+                                                <span class="badge badge-soft- text-uppercase"></span>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex gap-2">
+                                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+    
+                            <div class="row justify-content-md-between align-items-md-center">
+                                <div class="col-sm-12 col-md-5">
+                                    
+                                </div>
+                                
+                                <div class="col-sm-12 col-md-5">
+                                    <div class="text-md-right float-md-end listjs-pagination"></div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+
                 </div>
                 
             </div>
         
 
-            <div class="card-body">
-                <div id="customerList">
-                    <div class="row g-4 mb-3">
-                        
 
-                        <div class="table-responsive table-card mt-3 mb-1">
-                            <table class="table">
-                                <thead>
-                                    <tr class="bg-light text-muted">
-                                        <th scope="col" style="width: 50px;"></th>
-                                        <th class="sort" data-sort="customer_name">Sr.No</th>
-                                        <th class="sort" data-sort="customer_name">Brand</th>
-                                        <th class="sort" data-sort="email">SKU's</th>
-                                        <th class="sort" data-sort="phone">Description</th>
-                                        <th class="sort" data-sort="date">Color</th>
-                                        <th class="sort" data-sort="status">HSN code</th>
-                                        <th class="sort">Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr >
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td class="status">
-                                            <span class="badge badge-soft- text-uppercase"></span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex gap-2">
-                                                
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="row justify-content-md-between align-items-md-center">
-                            <div class="col-sm-12 col-md-5">
-                                
-                            </div>
-                            
-                            <div class="col-sm-12 col-md-5">
-                                <div class="text-md-right float-md-end listjs-pagination"></div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            
-            </div>
     
         </div>
     </div>

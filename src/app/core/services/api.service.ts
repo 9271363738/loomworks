@@ -54,8 +54,11 @@ register(data:any){
 
 
 // Get all Itom
-  gatAllItem() {
-    return this.http.post < any > (`${environment.baseURL}item`, {
+  gatAllItem(data:any) {
+    return this.http.post < any > (`${environment.baseURL}item/get`,data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
       })
       .pipe(map((data: any) => {
         return data;
