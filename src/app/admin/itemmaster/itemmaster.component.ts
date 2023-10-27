@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class ItemmasterComponent implements OnInit {
 
-  constructor(private apiservice:ApiService) { }
+  constructor(private apiservice:ApiService,public route:Router) { }
 
   data:any=[]
 
@@ -19,4 +20,10 @@ export class ItemmasterComponent implements OnInit {
       })
   }
 
+
+  itemEdit(item_id:any){
+    this.route.navigate(['']),{
+      queryParams:{id:item_id}
+    }
+  }
 }

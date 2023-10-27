@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
@@ -20,12 +20,41 @@ export class CreateItemComponent implements OnInit {
   Catagory:any="";
   Price:any="";
   dealers:any=[];
-  
-  constructor(private apiservice:ApiService,public route:Router) { }
+  action="create"
+  id:any=""
+  constructor(private apiservice:ApiService,public route:Router,public routes:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.apiservice.getAllDealers({}).subscribe((cdata=>{
       this.dealers=cdata.dealers
+      this.routes.params.subscribe((pData:any) => {
+        console.log(pData.action)
+        if(pData.action == 'create'){
+          this.action = 'create';
+  
+        }else{
+          this.action = 'edit';
+          this.routes.queryParams.subscribe((eData:any) => {
+            this.id = eData.id;
+            this.apiservice.getAllDealers({_id:eData.id}).subscribe((cdata:any)=>{
+              console.log(cdata.item[0])
+              this.Name = cdata.item[0].user?.name;
+              this.Sku= cdata.dealers[0].user?.sku;
+              this.Brand= cdata.dealers[0].brand;
+              this.Description = cdata.dealers[0].user?.description;
+              this.Color= cdata.dealers[0].color;
+              this.Hsncode= cdata.dealers[0].Hsncode;
+              this.sizes= cdata.dealers[0].sizes;
+              this.Catagory= cdata.dealers[0].Catagory;
+              this.Price= cdata.dealers[0].price;
+          })
+          })
+        }
+      })
+     
+
+
+
     }))
   }
 

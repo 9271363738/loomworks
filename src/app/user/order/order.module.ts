@@ -20,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     OrderRoutingModule,
-
+    FormsModule,
     NgbNavModule,
     NgSelectModule,
     SharedModule,

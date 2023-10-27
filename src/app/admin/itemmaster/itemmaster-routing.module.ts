@@ -6,7 +6,7 @@ import { ItemmasterComponent } from './itemmaster.component';
 
 const routes: Routes = [
   {
-    path:"create-item",
+    path:"create-item/:action",
     component:CreateItemComponent
   },
   {
