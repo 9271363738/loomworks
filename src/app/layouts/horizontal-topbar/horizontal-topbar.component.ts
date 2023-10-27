@@ -5,8 +5,9 @@ import { TranslateService } from '@ngx-translate/core';
 // Menu Pachage
 // import MetisMenu from 'metismenujs';
 
-import { MENU } from './menu';
+import { AdminMENU,UserMENU } from './menu';
 import { MenuItem } from './menu.model';
+import { AuthenticationService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-horizontal-topbar',
@@ -20,13 +21,19 @@ export class HorizontalTopbarComponent implements OnInit {
   @ViewChild('sideMenu') sideMenu!: ElementRef;
   @Output() mobileMenuButtonClicked = new EventEmitter();
 
-  constructor(private router: Router, public translate: TranslateService) {
+  constructor(private router: Router, public translate: TranslateService,private auth:AuthenticationService) {
     translate.setDefaultLang('en');
   }
 
   ngOnInit(): void {
     // Menu Items
-    this.menuItems = MENU;
+  if(this.auth.currentUserValue.role=='admin'){
+    this.menuItems = AdminMENU;
+  }
+  else{
+    this.menuItems = UserMENU;
+  }
+    
   }
 
   /***

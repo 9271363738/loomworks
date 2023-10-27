@@ -55,6 +55,9 @@ export class CreateOrderComponent implements OnInit {
     });    
   }
 
+
+
+
   ngOnInit(): void {
     /**
     * BreadCrumb
@@ -146,4 +149,15 @@ export class CreateOrderComponent implements OnInit {
     (this.userForm.get('items') as FormArray).removeAt(index);
   }
 
+  quantity: number = 1;
+
+  decreaseQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
+
+  increaseQuantity() {
+    this.quantity++;
+  }
 }
