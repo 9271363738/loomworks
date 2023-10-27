@@ -22,52 +22,44 @@
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
-                                <label for="emailidInput" class="form-label">Brand</label>
-                                <input type="email" class="form-control" placeholder="example@gamil.com" id="emailidInput" [(ngModel)]="Brand">
+                                <label for="Input" class="form-label">Brand</label>
+                                <input type="email" class="form-control" placeholder="Brand" id="text">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
-                                <label for="Password" class="form-label">SKU</label>
-                                <input type="password" class="form-control" placeholder="Create Password" id="address1ControlTextarea" [(ngModel)]="Sku">
+                                <label for="Input" class="form-label">SKU</label>
+                                <input type="password" class="form-control" placeholder=" SKU" id="">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
-                                <label for="phonenumberInput" class="form-label">Color</label>
-                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput" [(ngModel)]="Color">
+                                <label for="Input" class="form-label">Color</label>
+                                <input type="tel" class="form-control" placeholder="pick color" id="">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
-                                <label for="phonenumberInput" class="form-label">Hsn Code</label>
-                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput"[(ngModel)]="Hsncode">
+                                <label for="Input" class="form-label">Hsn Code</label>
+                                <input type="tel" class="form-control" placeholder="HSN code" id="">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
-                                <label for="phonenumberInput" class="form-label">Decriptipn</label>
-                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput" [(ngModel)]="Description">
+                                <label for="Input" class="form-label">Decriptipn</label>
+                                <input type="tel" class="form-control" placeholder="Description" id="">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
-                                <label for="phonenumberInput" class="form-label">Dealer</label>
-                                <ng-select [(ngModel)]="Dealer" [ngModelOptions]="{standalone: true}">
-                                    <ng-option  *ngFor="let item of dealers" value="{{item._id}}">{{item.user.name}}</ng-option>
-                                </ng-select>
+                                <label for="Input" class="form-label">Dealer</label>
+                                <input type="tel" class="form-control" placeholder="Dealer" id=" ">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
-                                <label for="phonenumberInput" class="form-label">Catagory</label>
-                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput" [(ngModel)]="Catagory">
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-12">
-                            <div class="mb-3">
-                                <label for="phonenumberInput" class="form-label">Price</label>
-                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput" [(ngModel)]="Price">
+                                <label for="Input" class="form-label">Catagory</label>
+                                <input type="tel" class="form-control" placeholder="Category" id="">
                             </div>
                         </div>
                     </div>
@@ -98,7 +90,7 @@
                                     <tbody id="newlink">
                                         <tr id="1" class="product" *ngFor="let item of sizes;let i = index">
                                             <td class="text-start">
-                                                    <input type="tel" class="form-control" placeholder="Name" id="phonenumberInput" [(ngModel)]="item.name">
+                                                    <input type="tel" class="form-control" placeholder="Name" id="">
                                             </td>
                                             <td class="product-removal">
                                                 <a (click)="deleteSize(i)" class="btn btn-success">Delete</a>
