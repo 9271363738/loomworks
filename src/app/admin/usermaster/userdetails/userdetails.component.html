@@ -25,23 +25,23 @@
                         <div class="row g-3">
                             <div class="col-lg-3 col-6">
                                 <p class="text-muted mb-2 text-uppercase fw-semibold">Dealer Id</p>
-                                <h5 class="fs-14 mb-0"><span id="invoice-no"></span></h5>
+                                <h5 class="fs-14 mb-0"><span id="invoice-no"></span>{{courseId}}</h5>
                             </div>
                             <!--end col-->
                             <div class="col-lg-3 col-6">
                                 <p class="text-muted mb-2 text-uppercase fw-semibold">Date Created  </p>
-                                <h5 class="fs-14 mb-0"><span id="invoice-date"></span> <small
+                                <h5 class="fs-14 mb-0"><span id="invoice-date"></span>{{data?.updatedAt|date:"mediumDate"}}<small
                                         class="text-muted" id="invoice-time"></small></h5>
                             </div>
                             <!--end col-->
                             <div class="col-lg-3 col-6">
                                 <p class="text-muted mb-2 text-uppercase fw-semibold">Name</p>
-                                <span class="badge badge-soft-success fs-11" id="payment-status"></span>
+                                <span class="badge badge-soft-success fs-11" id="payment-status">{{data?.user?.name}}</span>
                             </div>
                             <!--end col-->
                             <div class="col-lg-3 col-6">
                                 <p class="text-muted mb-2 text-uppercase fw-semibold">Email</p>
-                                <span class="badge badge-soft-success fs-11" id="payment-status"></span>
+                                <span class="badge badge-soft-success fs-11" id="payment-status">{{data?.user?.email}}</span>
                             </div>
                             <!--end col-->
 
@@ -56,20 +56,19 @@
                         <div class="row g-3">
                             <div class="col-6">
                                 <h6 class="text-muted text-uppercase fw-semibold mb-3">Billing Address</h6>
-                                <p class="fw-medium mb-2" id="billing-name"></p>
+                                <p class="fw-medium mb-2" id="billing-name">{{data?.billingAddress}}</p>
                                 <p class="text-muted mb-1" id="billing-address-line-1"></p>
-                                <p class="text-muted mb-1"><span>Phone: </span><span id="billing-phone-no">
-                                        </span></p>
+                                <p class="text-muted mb-1"><span>Phone: </span></p><span id="billing-phone-no">{{data?.Mobile}}</span>
                                 <p class="text-muted mb-0"><span> </span><span id="billing-tax-no"></span>
                                 </p>
                             </div>
                             <!--end col-->
                             <div class="col-6">
                                 <h6 class="text-muted text-uppercase fw-semibold mb-3">Shipping Address</h6>
-                                <p class="fw-medium mb-2" id="shipping-name"></p>
+                                <p class="fw-medium mb-2" id="shipping-name">{{data?.shippingAddress}}</p>
                                 <p class="text-muted mb-1" id="shipping-address-line-1"></p>
-                                <p class="text-muted mb-1"><span>Phone: </span><span id="shipping-phone-no">
-                                        </span></p>
+                                <p class="text-muted mb-2"><span>Phone: </span></p>
+                                <span id="shipping-phone-no">{{data?.Mobile}}</span>
                             </div>
                             <!--end col-->
                         </div>

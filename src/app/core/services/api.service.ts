@@ -14,6 +14,9 @@ export class ApiService {
    
   constructor(public http: HttpClient,) { }
   _header:any;
+
+
+  
   login(data:any){
     console.log(data)
     return this.http.post<any>(`${environment.baseURL}auth/authenticate`,data,{
@@ -100,8 +103,11 @@ register(data:any){
 
 
   // Get Dealers
-  gatAllDealers() {
-    return this.http.get < any > (`${environment.baseURL}dealers`, {
+  getAllDealers(data:any) {
+    return this.http.post < any > (`${environment.baseURL}dealers/get`,data,{
+      headers: {
+        'Content-Type': 'application/json'
+      }
       })
       .pipe(map((data: any) => {
         return data;
