@@ -17,49 +17,57 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="firstNameinput" class="form-label" > Name</label>
-                                <input type="text" class="form-control" placeholder="Enter your Name" id="firstNameinput">
+                                <input type="text" class="form-control" placeholder="Enter your Name" id="firstNameinput" [(ngModel)]="Name">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="emailidInput" class="form-label">Brand</label>
-                                <input type="email" class="form-control" placeholder="example@gamil.com" id="emailidInput">
+                                <input type="email" class="form-control" placeholder="example@gamil.com" id="emailidInput" [(ngModel)]="Brand">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="Password" class="form-label">SKU</label>
-                                <input type="password" class="form-control" placeholder="Create Password" id="address1ControlTextarea">
+                                <input type="password" class="form-control" placeholder="Create Password" id="address1ControlTextarea" [(ngModel)]="Sku">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="phonenumberInput" class="form-label">Color</label>
-                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput">
+                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput" [(ngModel)]="Color">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="phonenumberInput" class="form-label">Hsn Code</label>
-                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput">
+                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput"[(ngModel)]="Hsncode">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
                                 <label for="phonenumberInput" class="form-label">Decriptipn</label>
-                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput">
+                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput" [(ngModel)]="Description">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="phonenumberInput" class="form-label">Dealer</label>
-                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput">
+                                <ng-select [(ngModel)]="Dealer" [ngModelOptions]="{standalone: true}">
+                                    <ng-option  *ngFor="let item of dealers" value="{{item._id}}">{{item.user.name}}</ng-option>
+                                </ng-select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="phonenumberInput" class="form-label">Catagory</label>
-                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput">
+                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput" [(ngModel)]="Catagory">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12">
+                            <div class="mb-3">
+                                <label for="phonenumberInput" class="form-label">Price</label>
+                                <input type="tel" class="form-control" placeholder="+(245) 451 45123" id="phonenumberInput" [(ngModel)]="Price">
                             </div>
                         </div>
                     </div>
@@ -88,12 +96,12 @@
                                         </tr>
                                     </thead>
                                     <tbody id="newlink">
-                                        <tr id="1" class="product" *ngFor="let item of sizes">
+                                        <tr id="1" class="product" *ngFor="let item of sizes;let i = index">
                                             <td class="text-start">
-                                                    <input type="tel" class="form-control" placeholder="Name" id="phonenumberInput">
+                                                    <input type="tel" class="form-control" placeholder="Name" id="phonenumberInput" [(ngModel)]="item.name">
                                             </td>
                                             <td class="product-removal">
-                                                <a href="javascript:void(0)" class="btn btn-success">Delete</a>
+                                                <a (click)="deleteSize(i)" class="btn btn-success">Delete</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -112,7 +120,7 @@
                                 
                 <div class="col-lg-12">
                     <div class="text-end">
-                        <button style="margin: 0px;;" type="submit" class="btn btn-primary">Submit</button>
+                        <button style="margin: 0px;;" type="submit" class="btn btn-primary"(click)="CreateItom()">Submit</button>
                     </div>
                 </div><!--end col-->
             </div>
