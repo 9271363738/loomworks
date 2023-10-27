@@ -6,6 +6,7 @@ import { OrderComponent } from './order.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -18,8 +19,8 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     OrderRoutingModule,
 
-    NgbNavModule
-    
+    NgbNavModule,
+    NgSelectModule
   ]
 })
 export class OrderModule { }

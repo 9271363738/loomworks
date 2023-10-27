@@ -3,1299 +3,146 @@
   <div class="card">
     <div class="card-body">
 
-      <ul ngbNav #Light="ngbNav" [activeId]="1" class="nav nav-pills nav-custom nav-custom-light mb-3">
-        <li style="margin-left: 100px;" style="margin-left: 4-px;" [ngbNavItem]="1">
-          <a ngbNavLink>
-            Custtomer Facing
-          </a>
-          <ng-template ngbNavContent>
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3">
-                <h2>Men's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0">
-                  <th> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
 
-
-                  <tr>
-
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px ;" type="number" value="1">
-                          </div>
-
-                        </div>
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div>
+            <div class="mb-2">
+              <ng-select>
+                <ng-option value=""></ng-option>
+              </ng-select>
             </div>
-
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3 ">
-                <h2>Women's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0 ">
-                  <th class=""> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td style="background-color: aquamarine;"> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
+          </div>
+          <div>
+            <div class="mb-2">
+              <ng-select>
+                <ng-option value="" disabled="" selected>Select Category</ng-option>
+                <ng-option value="Customer Facing">Customer Facing</ng-option>
+                <ng-option value="Non-Customer Facing">Non-Customer Facing</ng-option>
+                <ng-option value="Technicians">Technicians</ng-option>
+                <ng-option value="Service Technicians">Service Technicians</ng-option>
+                <ng-option value="Drivers">Drivers</ng-option>
+                <ng-option value="Pantry Staff">Pantry Staff</ng-option>
+              </ng-select>
             </div>
+          </div>
+        </div><!--end col-->
+        <div class="col-lg-4 ms-auto">
+          <div class="mb-2">
+            <input type="date" class="form-control" id="registrationNumber" maxlength="12"
+              placeholder="Date" required />
+          </div>
+          <div class="mb-2">
+            <input type="text" class="form-control" id="companyEmail" placeholder="Customer No" required />
+          </div>
+          <div class="mb-2">
+            <input type="date" class="form-control" id="companyWebsite" placeholder="PO Date" required />
+          </div>
+          <div>
+            <input type="text" class="form-control" data-plugin="cleave-phone" id="compnayContactno"
+              placeholder="PO No" required />
+          </div>
+        </div>
+      </div><!--end row-->
 
-
-
-
-          </ng-template>
-
-        </li>
-
-
-
-        <li style="margin-left: 4-px;" [ngbNavItem]="2">
-          <a ngbNavLink>
-            Non-Custtomer Facing
-          </a>
-          <ng-template ngbNavContent>
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3">
-                <h2>Men's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0">
-                  <th> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px ;" type="number" value="1">
-                          </div>
-
-                        </div>
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3 ">
-                <h2>Women's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0 ">
-                  <th class=""> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td style="background-color: aquamarine;"> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-
-
-
-          </ng-template>
-
-        </li>
-
-
-
-        <li style="margin-left: 4-px;" [ngbNavItem]="3">
-          <a ngbNavLink>
-            Technicions
-          </a>
-          <ng-template ngbNavContent>
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3">
-                <h2>Men's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0">
-                  <th> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px ;" type="number" value="1">
-                          </div>
-
-                        </div>
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3 ">
-                <h2>Women's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0 ">
-                  <th class=""> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td style="background-color: aquamarine;"> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-
-
-
-          </ng-template>
-
-        </li>
-
-
-
-
-        <li style="margin-left: 4-px;" [ngbNavItem]="4">
-          <a ngbNavLink>
-           Service  Technicions
-          </a>
-          <ng-template ngbNavContent>
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3">
-                <h2>Men's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0">
-                  <th> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px ;" type="number" value="1">
-                          </div>
-
-                        </div>
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3 ">
-                <h2>Women's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0 ">
-                  <th class=""> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td style="background-color: aquamarine;"> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-
-
-
-          </ng-template>
-
-        </li>
-
-
-
-
-
-
-        <li style="margin-left: 4-px;" [ngbNavItem]="5">
-          <a ngbNavLink>
-            Drivers
-          </a>
-          <ng-template ngbNavContent>
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3">
-                <h2>Men's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0">
-                  <th> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px ;" type="number" value="1">
-                          </div>
-
-                        </div>
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3 ">
-                <h2>Women's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0 ">
-                  <th class=""> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td style="background-color: aquamarine;"> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-
-
-
-          </ng-template>
-
-        </li>
-
-
-
-
-
-
-        <li style="margin-left: 4-px;" [ngbNavItem]="6">
-          <a ngbNavLink>
-           Penttry Staff
-          </a>
-          <ng-template ngbNavContent>
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3">
-                <h2>Men's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0">
-                  <th> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px ;" type="number" value="1">
-                          </div>
-
-                        </div>
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3 ">
-                <h2>Women's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0 ">
-                  <th class=""> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td style="background-color: aquamarine;"> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-
-
-
-          </ng-template>
-
-        </li>
-
-
-
-
-
-        <li style="margin-left: 4-px;" [ngbNavItem]="7">
-          <a ngbNavLink>
-            Messages
-          </a>
-          <ng-template ngbNavContent>
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3">
-                <h2>Men's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0">
-                  <th> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px ;" type="number" value="1">
-                          </div>
-
-                        </div>
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;  margin-right: 10px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-            <div class="d-flex mb-1">
-              <div class="flex-grow-1 me-3 ">
-                <h2>Women's</h2>
-                <table class="table table-striped table-nowrap align-middle mb-0 ">
-                  <th class=""> Sr.no </th>
-                  <th> Brand </th>
-                  <th> SKUs</th>
-                  <th> Description </th>
-                  <th> Color </th>
-                  <th> HSN Code </th>
-                  <th> Sizes </th>
-                  <th> Price </th>
-                  <th> Gst % </th>
-                  <th>Amount </th>
-                  <th> GST Amount </th>
-                  <th> Total </th>
-                  <th> Select </th>
-
-
-                  <tr>
-
-                    <td style="background-color: aquamarine;"> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-
-                      <div style="display: flex;">
-                        <div class="block">
-                          <div>28</div>
-
-                          <div class="">
-                            <!-- <button style="width: 20px;" type="button">–</button> -->
-                            <input style="width: 20px; margin-right: 10px ;" type="number" value="1">
-
-                          </div>
-
-                        </div>
-                        <div class="">
-                          <div class="">28</div>
-
-                          <div class="">
-                            <input style="width: 20px;" type="number" value="1">
-                          </div>
-
-                        </div>
-
-
-
-
-                      </div>
-
-
-                    </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td>
-                      <div>
-                        <input type="checkbox">
-                      </div>
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-              <div class="flex-shrink-0">
-
-              </div>
-            </div>
-
-
-
-
-          </ng-template>
-
-        </li>
-
-
-
-      </ul>
-      <div class="tab-content text-muted">
-        <div [ngbNavOutlet]="Light"></div>
-      </div>
     </div>
 
 
 
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <label for="invoicenoInput">Date</label>
+          <input type="date" class="form-control" id="invoicenoInput" placeholder="Date" />
+        </div><!--end col-->
+        <div class="col-lg-3 col-sm-6">
+          <div>
+            <label for="date-field">Customer No</label>
+            <input type="text" class="form-control" id="date-field" data-provider="flatpickr" data-time="true"
+              placeholder="Customer No">
+          </div>
+        </div><!--end col-->
+        <div class="col-lg-3 col-sm-6">
+          <label for="choices-payment-status">PO Date</label>
+          <input type="date" class="form-control" id="invoicenoInput" placeholder=" PO Date" />
+        </div><!--end col-->
+        <div class="col-lg-3 col-sm-6">
+          <div>
+            <label for="totalamountInput">PO No</label>
+            <input type="text" class="form-control" id="totalamountInput" placeholder="PO No" />
+          </div>
+        </div><!--end col-->
+      </div><!--end row-->
+    </div>
 
-    <!-- end card-body -->
+    <div class="table-responsive">
+      <table class="invoice-table table table-borderless table-nowrap mb-0">
+        <thead class="align-middle">
+          <tr class="table-active">
+            <th>  Select </th>
+            <th> Sr.no </th>
+            <th> Brand </th>
+            <th> SKUs</th>
+            <th> Description </th>
+            <th> Color </th>
+            <th> HSN Code </th>
+            <th> Sizes </th>
+            <th> Price </th>
+            <th> Gst % </th>
+            <th> Amount </th>
+            <th> GST Amount </th>
+            <th> Total </th>
+          
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr>
+              <td>
+                <input style="margin-left: 8px;" type="checkbox">
+              </td>
+            <td> 1 </td>
+            <td> 2 </td>
+            <td> 3 </td>
+            <td> 4 </td>
+            <td> 5 </td>
+            <td> 6 </td>
+            <td>
+            
+              <div >
+            <span>size-1</span>
+
+                <div style="padding: 1px; margin-left: 10px;" class="input-step">
+                    <button type="button" class="minus" >–</button>
+                    <input type="number" style="width: 20px;"  min="1" max="100" >
+                    <button type="button" class="plus" >+</button>
+                </div>
+            </div>
+
+
+              
+            </td>
+            <td> 1 </td>
+            <td> 1 </td>
+            <td> 1 </td>
+            <td> 1 </td>
+            <td> 1 </td>
+            <td>
+    
+            </td>
+    
+          </tr>
+        </tbody>
+  
+        
+      </table>
+      </div>
+    
+
+
   </div>
-</div><!--end col-->
+
+
+
+
+</div>
