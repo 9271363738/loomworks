@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateItemComponent implements OnInit {
 
+  sizes:any=[];
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  addItem(){
+    this.sizes.push({name:""})
+  }
 }
