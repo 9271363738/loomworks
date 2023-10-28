@@ -20,8 +20,6 @@ userid:any;
 
   onclick(userid:any){
       this.route.navigate(['/admin/usermaster/userdetails/'+userid])
-
-    
   }
 
   edit(userid:any){

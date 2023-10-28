@@ -21,9 +21,16 @@ export class ItemmasterComponent implements OnInit {
   }
 
 
-  itemEdit(item_id:any){
-    this.route.navigate(['']),{
-      queryParams:{id:item_id}
-    }
+  itemEdit(itemid:any){
+    this.route.navigate(['/admin/itemmaster/create-item/edit'],{
+      queryParams:{id:itemid,name:"shubham"}
+    })
   }
+
+
+  onclick(userid:any){
+    this.route.navigate(['/admin/itemmaster/create-item/'+userid])
+    console.log(userid);
+}
+
 }

@@ -23,43 +23,52 @@
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="Input" class="form-label">Brand</label>
-                                <input type="email" class="form-control" placeholder="Brand" id="text">
+                                <input type="email" class="form-control" placeholder="Brand" id="text" [(ngModel)]="Brand">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="Input" class="form-label">SKU</label>
-                                <input type="password" class="form-control" placeholder=" SKU" id="">
+                                <input type="text" class="form-control" placeholder=" SKU" id="" [(ngModel)]="Sku">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="Input" class="form-label">Color</label>
-                                <input type="tel" class="form-control" placeholder="pick color" id="">
+                                <input type="text" class="form-control" placeholder="pick color" id="" [(ngModel)]="Color">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="Input" class="form-label">Hsn Code</label>
-                                <input type="tel" class="form-control" placeholder="HSN code" id="">
+                                <input type="number" class="form-control" placeholder="HSN code" id="" [(ngModel)]="Hsncode">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="mb-3">
                                 <label for="Input" class="form-label">Decriptipn</label>
-                                <input type="tel" class="form-control" placeholder="Description" id="">
+                                <input type="text" class="form-control" placeholder="Description" id="" [(ngModel)]="Description">
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
-                                <label for="Input" class="form-label">Dealer</label>
-                                <input type="tel" class="form-control" placeholder="Dealer" id=" ">
+                                <label for="phonenumberInput" class="form-label">Status</label>
+                                <ng-select [(ngModel)]="Dealer" [ngModelOptions]="{standalone: true}">
+                                    <ng-option value="{{a._id}}" *ngFor="let a of dealers">{{a.user.name}}</ng-option>
+                                    
+                                </ng-select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
                                 <label for="Input" class="form-label">Catagory</label>
-                                <input type="tel" class="form-control" placeholder="Category" id="">
+                                <input type="text" class="form-control" placeholder="Category" id="" [(ngModel)]="Catagory">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12">
+                            <div class="mb-3">
+                                <label for="Input" class="form-label">Price</label>
+                                <input type="text" class="form-control" placeholder="Category" id="" [(ngModel)]="Price">
                             </div>
                         </div>
                     </div>
@@ -90,7 +99,7 @@
                                     <tbody id="newlink">
                                         <tr id="1" class="product" *ngFor="let item of sizes;let i = index">
                                             <td class="text-start">
-                                                    <input type="tel" class="form-control" placeholder="Name" id="">
+                                                    <input type="tel" class="form-control" placeholder="Name" id=""[(ngModel)]="item.name">
                                             </td>
                                             <td class="product-removal">
                                                 <a (click)="deleteSize(i)" class="btn btn-success">Delete</a>
@@ -112,7 +121,7 @@
                                 
                 <div class="col-lg-12">
                     <div class="text-end">
-                        <button style="margin: 0px;;" type="submit" class="btn btn-primary"(click)="CreateItom()">Submit</button>
+                        <button style="margin: 0px;;" type="submit" class="btn btn-primary"(click)="submit()">Submit</button>
                     </div>
                 </div><!--end col-->
             </div>
