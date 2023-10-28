@@ -98,36 +98,28 @@
         </thead>
       
         <tbody>
-          <tr *ngFor="let item of list">
+          <tr *ngFor="let item of list let i =index">
               <td>
                 <input style="margin-left: 8px;" type="checkbox">
               </td>
-            <td> 1 </td>
+            <td> {{i+1}} </td>
             <td> {{item.brand}} </td>
-            <td> {{item.sku}}</td>
+            <td> {{item.Sku}}</td>
             <td> {{item.description}}</td>
             <td> {{item.color}} </td>
             <td> {{item.Hsncode}} </td>
-            <td>
-            
-              <div >
             <span>size-1</span>
-
-                <div style="padding: 1px; margin-left: 10px;" class="input-step">
-                    <button type="button" class="minus" >–</button>
-                    <input type="number" style="width: 20px;"  min="1" max="99" value="1" >
-                    <button type="button" class="plus" >+</button>
-                </div>
-            </div>
-
-
-              
-            </td>
+              <div style="padding: 1px; margin-left: 10px;" class="input-step">
+                  <button type="button" class="minus" >–</button>
+                  <input type="number" style="width: 20px;"  min="1" max="99" value="1" >
+                  <button type="button" class="plus" >+</button>
+              </div>
+            <td> {{item.price}} </td>
+            <td> {{18}} </td>
+            <td>  </td>
             <td> 1 </td>
             <td> 1 </td>
-            <td> 1 </td>
-            <td> 1 </td>
-            <td> 1 </td>
+          
             <td>
     
             </td>
