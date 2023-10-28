@@ -10,7 +10,7 @@
           <div>
             <div class="mb-2">
               <ng-select>
-                <ng-option value=""></ng-option>
+                <ng-option  *ngFor="let item of user"  value="{{item._id}}" >{{item.user.name}}</ng-option>
               </ng-select>
             </div>
           </div>
@@ -31,17 +31,17 @@
         <div class="col-lg-4 ms-auto">
           <div class="mb-2">
             <input type="date" class="form-control" id="registrationNumber" maxlength="12"
-              placeholder="Date" required />
+              placeholder="Date" required  [(ngModel)]="date"/>
           </div>
           <div class="mb-2">
-            <input type="text" class="form-control" id="companyEmail" placeholder="Customer No" required />
+            <input type="text" class="form-control" id="companyEmail" placeholder="Customer No" required [(ngModel)]="CustomerNo" />
           </div>
           <div class="mb-2">
-            <input type="date" class="form-control" id="companyWebsite" placeholder="PO Date" required />
+            <input type="date" class="form-control" id="companyWebsite" placeholder="PO Date" required [(ngModel)]="poDate" />
           </div>
           <div>
             <input type="text" class="form-control" data-plugin="cleave-phone" id="compnayContactno"
-              placeholder="PO No" required />
+              placeholder="PO No" required [(ngModel)]="PONo" />
           </div>
         </div>
       </div><!--end row-->
@@ -54,23 +54,23 @@
       <div class="row">
         <div class="col-lg-3 col-sm-6">
           <label for="invoicenoInput">Date</label>
-          <input type="date" class="form-control" id="invoicenoInput" placeholder="Date" />
+          <input type="date" class="form-control" id="invoicenoInput" placeholder="Date"  />
         </div><!--end col-->
         <div class="col-lg-3 col-sm-6">
           <div>
             <label for="date-field">Customer No</label>
             <input type="text" class="form-control" id="date-field" data-provider="flatpickr" data-time="true"
-              placeholder="Customer No">
+              placeholder="Customer No"  [(ngModel)]="CustomerNo">
           </div>
         </div><!--end col-->
         <div class="col-lg-3 col-sm-6">
           <label for="choices-payment-status">PO Date</label>
-          <input type="date" class="form-control" id="invoicenoInput" placeholder=" PO Date" />
+          <input type="date" class="form-control" id="invoicenoInput" placeholder=" PO Date" [(ngModel)]="poDate" />
         </div><!--end col-->
         <div class="col-lg-3 col-sm-6">
           <div>
             <label for="totalamountInput">PO No</label>
-            <input type="text" class="form-control" id="totalamountInput" placeholder="PO No" />
+            <input type="text" class="form-control" id="totalamountInput" placeholder="PO No"  [(ngModel)]="PONo" />
           </div>
         </div><!--end col-->
       </div><!--end row-->
@@ -98,16 +98,16 @@
         </thead>
       
         <tbody>
-          <tr>
+          <tr *ngFor="let item of list">
               <td>
                 <input style="margin-left: 8px;" type="checkbox">
               </td>
             <td> 1 </td>
-            <td> 2 </td>
-            <td> 3 </td>
-            <td> 4 </td>
-            <td> 5 </td>
-            <td> 6 </td>
+            <td> {{item.brand}} </td>
+            <td> {{item.sku}}</td>
+            <td> {{item.description}}</td>
+            <td> {{item.color}} </td>
+            <td> {{item.Hsncode}} </td>
             <td>
             
               <div >
@@ -115,7 +115,7 @@
 
                 <div style="padding: 1px; margin-left: 10px;" class="input-step">
                     <button type="button" class="minus" >–</button>
-                    <input type="number" style="width: 20px;"  min="1" max="100" >
+                    <input type="number" style="width: 20px;"  min="1" max="99" value="1" >
                     <button type="button" class="plus" >+</button>
                 </div>
             </div>
@@ -141,7 +141,7 @@
 
 
   </div>
-  <button style="margin-left: 90%; background-color: rgb(141, 141, 209); border-radius: 5px; border: none; padding: 6px 20px; font-size: large;">
+  <button style="margin-left: 90%; background-color: rgb(141, 141, 209); border-radius: 5px; border: none; padding: 6px 20px; font-size: large;" (click)="next()">
     Next
   </button>
 
