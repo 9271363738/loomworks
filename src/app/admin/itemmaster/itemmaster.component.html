@@ -42,28 +42,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let item of data; let i = index">
+                                        <tr *ngFor="let a of data; let i = index">
                                             <th scope="row"></th>
                                             <td>{{i+1}}</td>
-                                            <td (click)="onclick(item._id)">{{item.name}}</td>
-                                            <td>{{item.Sku}}</td>
-                                            <td>{{item.description}}</td>
-                                            <td>{{item.color}}</td>
-                                            <td>{{item.Hsncode}}</td>
-                                            <td>{{item.price}}</td>
+                                            <td (click)="onclick(a._id)">{{a.name}}</td>
+                                            <td>{{a.Sku}}</td>
+                                            <td>{{a.description}}</td>
+                                            <td>{{a.color}}</td>
+                                            <td>{{a.Hsncode}}</td>
+                                            <td>{{a.price}}</td>
                                             <td>
                                                 <div class="d-flex gap-2 ml-2">
                                                     <div class="edit">
                                                         <button
                                                             class="btn btn-sm btn-success edit-item-btn"
                                                             data-bs-toggle="modal"
-                                                            data-bs-target="#showModal" (click)="itemEdit(item._id)">Edit</button>
+                                                            data-bs-target="#showModal" (click)="itemEdit(a._id)">Edit</button>
                                                     </div>
                                                     <div class="remove">
                                                         <button
                                                             class="btn btn-sm btn-danger remove-item-btn"
                                                             data-bs-toggle="modal"
-                                                            data-bs-target="#deleteRecordModal" (click)="deleteitem(item._id)">Remove</button>
+                                                            data-bs-target="#deleteRecordModal" (click)="deleteitem(a._id)">Remove</button>
                                                     </div>
                                                 </div>
                                             </td>
