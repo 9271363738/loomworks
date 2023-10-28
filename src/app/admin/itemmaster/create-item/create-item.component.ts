@@ -46,7 +46,7 @@ export class CreateItemComponent implements OnInit {
             this.Description=cdata.item[0].description;
             this.Color=cdata.item[0].color;
             this.Hsncode=cdata.item[0].Hsncode;
-            this.sizes=cdata.item[0].sizes;
+            this.sizes=(cdata.item[0].sizes== undefined)?[]:cdata.item[0].sizes;
             this.Catagory=cdata.item[0].Catagory;
             this.Price=cdata.item[0].price;
             this.Dealer=cdata.item[0].Dealer._id

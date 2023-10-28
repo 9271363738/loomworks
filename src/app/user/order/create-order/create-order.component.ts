@@ -1,3 +1,4 @@
+import { Route, Router } from '@angular/router';
 import { ItemmasterComponent } from './../../../admin/itemmaster/itemmaster.component';
 import { User } from './../../../core/models/auth.models';
 import { Component, OnInit } from '@angular/core';
@@ -29,10 +30,11 @@ export class CreateOrderComponent implements OnInit {
   poDate:any="";
   date:any="";
   list:any=[];
+  num:any;
   
   
 
-  constructor(private formBuilder: FormBuilder,private api:ApiService) { 
+  constructor(private formBuilder: FormBuilder,private api:ApiService, public route:Router) { 
 
     this.userForm = this.formBuilder.group({
       items: this.formBuilder.array([
@@ -64,8 +66,11 @@ export class CreateOrderComponent implements OnInit {
     })
     this.api.gatAllItem({}).subscribe((cData:any)=>{
       this.list=cData.item
+     this.num=this.list[0].price;
+     
       console.log(this.list);
     })
+    this.calculateTotalAmount()
     
 
   }
@@ -76,7 +81,7 @@ export class CreateOrderComponent implements OnInit {
       customerNo:this.CustomerNo,
       poNo:this.PONo,
 
-
+     
 
     })
     console.log(data);
@@ -84,6 +89,7 @@ export class CreateOrderComponent implements OnInit {
       console.log(cData)
 
     })
+    this.route.navigate(['/user/order/order-summary'])
   }
 
   /**
@@ -102,50 +108,34 @@ export class CreateOrderComponent implements OnInit {
     }
 
   // Default
-  counter = 0;
-  increment() {
-    this.counter++;
-    var itemAmount = document.querySelector('.product-price') as HTMLInputElement;
-    var priceselection = document.querySelector(".product-line-price") as HTMLInputElement;
-    this.updateQuantity(itemAmount?.value, this.counter, priceselection);
+  counter :number[]=[0];
+  increment(index:number) {
+    this.counter[index]++;
+    
   }
 
-  decrement() {
-    this.counter--;
-    var itemAmount = document.querySelector('.product-price') as HTMLInputElement;
-    var priceselection = document.querySelector(".product-line-price") as HTMLInputElement;
-    this.updateQuantity(itemAmount?.value, this.counter, priceselection);
+  decrement(index:number) {
+    if(this.counter[index]>0)
+    {
+    this.counter[index]--;
+    }
+   
+  }
+ calculateTotalAmount() {
+  
+    
+     
+    const gstRate = 18;
+    const gstAmount = (this.num * gstRate) / 100;
+    const totalAmount =  this.num+ gstAmount;
+  
+    // return totalAmount;
+    console.log(totalAmount);
   }
 
-  updateQuantity(amount: any, itemQuntity: any, priceselection:any){
-    var linePrice = amount * itemQuntity;    
-    priceselection.value = linePrice;
-    this.recalculateCart();
-  }
+ 
 
-  recalculateCart(){
-    var priceselection = document.querySelector(".product-line-price") as HTMLInputElement;
-    this.subtotal = parseFloat(priceselection.value);
-    var tax = this.subtotal * this.taxRate;
-	  var discount = this.subtotal * this.discountRate;
-	  var shipping = this.subtotal > 0 ? this.shippingRate : 0;
-	  var total = this.subtotal + tax + shipping - discount;
-    var subTotal = document.getElementById("cart-subtotal") as HTMLInputElement;    
-    var cartTax = document.getElementById("cart-tax") as HTMLInputElement;
-    var cartShipping = document.getElementById("cart-shipping") as HTMLInputElement;
-    var cartTotal = document.getElementById("cart-total") as HTMLInputElement;
-    var cartDiscount = document.getElementById("cart-discount") as HTMLInputElement;
-    var totalamountInput = document.getElementById("totalamountInput") as HTMLInputElement;
-	  var amountTotalPay = document.getElementById("amountTotalPay") as HTMLInputElement;
 
-    subTotal.value = priceselection.value;
-    cartTax.value = this.paymentSign + tax;
-    cartShipping.value = shipping.toFixed(2);
-    cartTotal.value = total.toFixed(2);
-    cartDiscount.value = discount.toFixed(2);
-    totalamountInput.value = total.toFixed(2);
-    amountTotalPay.value = total.toFixed(2);
-  }
 
   // Add Item
   addItem(): void {
