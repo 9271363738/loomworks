@@ -123,8 +123,6 @@ export class CreateOrderComponent implements OnInit {
   }
  calculateTotalAmount() {
   
-    
-     
     const gstRate = 18;
     const gstAmount = (this.num * gstRate) / 100;
     const totalAmount =  this.num+ gstAmount;
