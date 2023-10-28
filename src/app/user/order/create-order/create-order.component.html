@@ -98,16 +98,16 @@
         </thead>
       
         <tbody>
-          <tr>
+          <tr *ngFor="let item of list">
               <td>
                 <input style="margin-left: 8px;" type="checkbox">
               </td>
             <td> 1 </td>
-            <td>  </td>
-            <td> 3 </td>
-            <td> 4 </td>
-            <td> 5 </td>
-            <td> 6 </td>
+            <td> {{item.brand}} </td>
+            <td> {{item.sku}}</td>
+            <td> {{item.description}}</td>
+            <td> {{item.color}} </td>
+            <td> {{item.Hsncode}} </td>
             <td>
             
               <div >
