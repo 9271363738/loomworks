@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class UsermasterComponent implements OnInit {
 list:any=[];
-item_id:any;
+
   constructor(private api:ApiService,public route:Router) { }
 
   ngOnInit(): void {

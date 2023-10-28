@@ -84,7 +84,7 @@
                         <div class="mt-4">
                             
                         </div>
-                        <div class="hstack gap-2 justify-content-end d-print-none mt-4"  [routerLink]="['/admin/usermaster/createuser']">
+                        <div class="hstack gap-2 justify-content-end d-print-none mt-4"(click)="edit(data._id)">
                             <button  class="btn btn-success"><i
                            
                             class="ri-edit-fill align-bottom me-1" 

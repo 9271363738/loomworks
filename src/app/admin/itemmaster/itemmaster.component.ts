@@ -17,7 +17,7 @@ export class ItemmasterComponent implements OnInit {
   ngOnInit(): void {
       this.apiservice.gatAllItem({}).subscribe((cdata:any)=>{
       this.data=cdata.item
-      console.log(this.data)
+      console.log(this.data[0].price)
       })
   }
 
@@ -30,7 +30,7 @@ export class ItemmasterComponent implements OnInit {
 
 
   onclick(item_id:any){
-    this.route.navigate(['/admin/itemmaster/create-item/'+item_id])
+    this.route.navigate(['/admin/itemmaster/details-item/'+item_id])
     console.log(item_id);
 }
 

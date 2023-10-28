@@ -10,7 +10,7 @@ const routes: Routes = [
     component:CreateItemComponent
   },
   {
-    path:"details-item",
+    path:"details-item/:id",
     component:DetailsItemComponent
   },
   {
