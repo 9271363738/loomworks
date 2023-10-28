@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class CreateuserComponent implements OnInit {
 action = 'create';
 
 
-    constructor(public apiservice:ApiService,public route:ActivatedRoute) { }
+    constructor(public apiservice:ApiService,public route:ActivatedRoute,private routes:Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((pData:any) => {
@@ -69,7 +69,7 @@ action = 'create';
     }else{
       this.editdealers();
     }
-    
+    this.routes.navigate(['/admin/usermaster'])
   }
 
 editdealers(){

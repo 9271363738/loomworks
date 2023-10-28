@@ -93,6 +93,8 @@ export class CreateItemComponent implements OnInit {
     }else{
       this.edititom();
     }
+
+    this.route.navigate(['/admin/itemmaster'])
     
   }
 
@@ -116,6 +118,7 @@ edititom(){
         console.log(cdata)
   })
 }
+
 
 
 }
