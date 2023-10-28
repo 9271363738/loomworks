@@ -12,13 +12,21 @@ export class DetailsItemComponent implements OnInit {
   constructor(private api:ApiService,public route:ActivatedRoute) { }
 itemid:any='';
 finaldata:any=[];
+orders=0;
+dealersname:any=""
   ngOnInit(): void {
     this.route.params.subscribe((res:any)=>{
       this.itemid=res.id
       console.log(this.itemid)
       this.api.gatAllItem({_id:this.itemid}).subscribe((cdata:any)=>{
         this.finaldata=cdata.item[0]
-        console.log(this.finaldata);
+        this.api.gatAllOrders({"items.item":{$in:[this.itemid]}}).subscribe((ddata:any)=>{
+          this.orders=ddata.orders.length;
+          console.log(this.finaldata)
+          this.api.getAllDealers({}).subscribe((cdata:any)=>{
+            this.dealersname=cdata.dealers[0].user.name
+          })
+        })
     })
     })
   }

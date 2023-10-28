@@ -159,8 +159,11 @@ createOrders(data:any) {
 
 
   // Get Orders
-  gatAllOrders() {
-    return this.http.get < any > (`${environment.baseURL}orders`, {
+  gatAllOrders(data:any) {
+    return this.http.post < any > (`${environment.baseURL}orders/get`,data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
       })
       .pipe(map((data: any) => {
         return data;
