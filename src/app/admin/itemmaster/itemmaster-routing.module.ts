@@ -6,11 +6,11 @@ import { ItemmasterComponent } from './itemmaster.component';
 
 const routes: Routes = [
   {
-    path:"create-item",
+    path:"create-item/:action",
     component:CreateItemComponent
   },
   {
-    path:"details-item",
+    path:"details-item/:id",
     component:DetailsItemComponent
   },
   {

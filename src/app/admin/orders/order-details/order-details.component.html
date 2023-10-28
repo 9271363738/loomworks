@@ -69,11 +69,7 @@
           <div class="card-header">
               <div class="d-sm-flex align-items-center">
                   <h5 class="card-title flex-grow-1 mb-0">Order Status</h5>
-                  <div class="flex-shrink-0 mt-2 mt-sm-0">
-                      <div class="d-flex gap-1">
-                        <a href="javasccript:void(0;)" class="btn btn-soft-danger btn-sm mt-2 mt-sm-0"><i class="mdi mdi-archive-remove-outline align-middle me-1"></i> Cancel Order</a>
-                      </div>
-                  </div>
+              
               </div>
           </div>
           <div class="card-body">
@@ -183,20 +179,42 @@
           </div>
       </div><!--end card-->
   </div><!--end col-->
-  <div class="col-xl-3">
-      <div class="card">
-          <div class="card-header">
-             <div class="d-flex">
-                  <h5 class="card-title flex-grow-1 mb-0"><i class="mdi mdi-truck-fast-outline align-middle me-1 text-muted"></i>Order-Status</h5>
-                  <div class="flex-shrink-0">
-                      <a href="javascript:void(0);" class="badge badge-soft-primary fs-11">Track Order</a>
-                  </div>
+  <div class="col-xl-3 ">
+    <div class="card">
+      <div class="card-header">
+          <div class="d-flex">
+              <h5 class="card-title flex-grow-1 mb-0"><i class="mdi mdi-truck-fast-outline align-middle me-1 text-muted"></i>Order-Status</h5>
+              <div class="flex-shrink-0">
+                  <a href="javascript:void(0);" class="badge badge-soft-primary fs-11">Track Order</a>
               </div>
           </div>
-          <div class="card-body">
-              
-          </div>
-      </div><!--end card-->
+      </div>
+      <div class="card-body">
+        <div class="d-flex gap-5">
+          <!-- First "Pending" button with a symbol -->
+          <a href="javascript:void(0);" class="btn btn-warning mt-2 mt-sm-0 me-5" *ngIf="buttonpending" (click)="change()" >
+              <i class="mdi mdi-timer align-middle me-1 "></i>
+              Pending
+          </a>
+          <a href="javascript:void(0);" class="btn btn-success mt-2 mt-sm-0 me-5" *ngIf="buttonsuccess">
+            <i class="mdi mdi-over align-middle me-1"></i>
+            Success
+        </a>
+      
+          <!-- Second "Cancel Order" button -->
+          <a href="javascript:void(0);" class="btn btn-danger mt-2 mt-sm-0 ms-5 " (click)="cancel()" *ngIf="cancelbutton">
+              <i class="mdi mdi-success align-center me-1"></i>Cancel Order
+            
+          </a>
+          <a href="javascript:void(0);" class="btn btn-danger mt-2 mt-sm-0 ms-3" style="width:90%"  *ngIf="!buttonpending && !buttonsuccess">
+            <i class="mdi mdi-success align-center me-1"></i>Order Cancelled
+          
+        </a>
+      </div>
+      
+      </div>
+  </div><!--end card-->
+  
 
       <div class="card">
           <div class="card-header">

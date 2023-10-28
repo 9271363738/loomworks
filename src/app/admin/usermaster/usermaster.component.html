@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-sm-auto hstack gap-2">
                         <button
-                            [routerLink]="['/admin/usermaster/createuser']"
+                            [routerLink]="['/admin/usermaster/createuser/create']"
                             type="button"
                             data-bs-toggle="modal"
                             id="create-btn"
@@ -39,27 +39,29 @@
                                     <tr class="bg-light text-muted">
                                         <th scope="col" style="width: 50px;"></th>
                                         <th class="sort" data-sort="customer_name">Dealers Name</th>
-                                        <th class="sort" data-sort="email">Contact Name</th>
+                                        <th class="sort" data-sort="email">Company Name</th>
                                         <th class="sort" data-sort="phone">City</th>
                                         <th class="sort" data-sort="date">Mobile No.</th>
                                         <th class="sort" data-sort="status">Email Id</th>
+                                        <th>Status</th>
                                         <th class="sort">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr >
+                                    <tr *ngFor="let item of list;let i = index">
                                         <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td (click)="onclick(item._id)">{{item.user.name}}</td>
+                                        <td>{{item.companyName}}</td>
+                                        <td>{{item.billingCity}}</td>
+                                        <td>{{item.Mobile}}</td>
+                                        <td>{{item.user.email}}</td>
                                         <td class="status">
-                                            <span class="badge badge-soft- text-uppercase"></span>
+                                            <span [class]="item.user?.status == 'Active'?'badge-soft-success':'badge-soft-danger'" class="badge text-uppercase">{{item.user?.status}}</span>
                                         </td>
                                         <td>
                                             <div class="d-flex gap-2">
                                                 <div class="edit">
-                                                    <button
+                                                    <button (click)="edit(item._id)"
                                                         class="btn btn-sm btn-success edit-item-btn"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#showModal">Edit</button>
@@ -68,7 +70,7 @@
                                                     <button
                                                         class="btn btn-sm btn-danger remove-item-btn"
                                                         data-bs-toggle="modal"
-                                                        data-bs-target="#deleteRecordModal">Remove</button>
+                                                        data-bs-target="#deleteRecordModal" (click)="removedata(item._id)">Remove</button>
                                                 </div>
                                             </div>
                                         </td>
