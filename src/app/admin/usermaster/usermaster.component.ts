@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class UsermasterComponent implements OnInit {
 list:any=[];
-userid:any;
+item_id:any;
   constructor(private api:ApiService,public route:Router) { }
 
   ngOnInit(): void {
@@ -18,17 +18,17 @@ userid:any;
     })
   }
 
-  onclick(userid:any){
-      this.route.navigate(['/admin/usermaster/userdetails/'+userid])
+  onclick(item_id:any){
+      this.route.navigate(['/admin/usermaster/userdetails/'+item_id])
   }
 
-  edit(userid:any){
+  edit(item_id:any){
     this.route.navigate(['/admin/usermaster/createuser/edit'],{
-      queryParams:{id:userid,name:"Lubdha",mail:""}
+      queryParams:{id:item_id,name:"Lubdha",mail:""}
     })
   }
-  removedata(){
-    this.api.deleteDealers(this.userid).subscribe((cdata:any)=>{
+  removedata(item_id:any){
+    this.api.deleteDealers(item_id).subscribe((cdata:any)=>{
       this.list=cdata.dealers
   
     })
