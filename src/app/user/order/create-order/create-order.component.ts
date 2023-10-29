@@ -66,11 +66,12 @@ export class CreateOrderComponent implements OnInit {
     })
     this.api.gatAllItem({}).subscribe((cData:any)=>{
       this.list=cData.item
-     this.num=this.list[0].price;
-     
       console.log(this.list);
+      for(let i=0;i<=this.list.length;i++){
+        this.calculateTotalAmount(this.list[i])
+      }
     })
-    this.calculateTotalAmount()
+   
     
 
   }
@@ -109,26 +110,33 @@ export class CreateOrderComponent implements OnInit {
 
   // Default
   counter :number[]=[0];
-  increment(index:number) {
-    this.counter[index]++;
+
+  increment(item:any,list:any) {
+        if(list.quantity==undefined){
+           list.quantity=1;
+            }
+    list.quantity++;
+    item.price=item.price*list.quantity
+    this.calculateTotalAmount(item) 
     
   }
 
-  decrement(index:number) {
-    if(this.counter[index]>0)
-    {
-    this.counter[index]--;
+  decrement(item:any,list:any) {
+    if(list.quantity==1)  {
+      list.quantity=1;
     }
+    list.quantity--;
+    item.price=item.price/list.quantity
+    this.calculateTotalAmount(item) 
    
   }
- calculateTotalAmount() {
-  
+ calculateTotalAmount(item:any) {     
     const gstRate = 18;
-    const gstAmount = (this.num * gstRate) / 100;
-    const totalAmount =  this.num+ gstAmount;
+    item.gstAmount = (item.price * gstRate) / 100;
+    item.totalAmount =  item.price+ item.gstAmount;
   
     // return totalAmount;
-    console.log(totalAmount);
+    console.log(item.totalAmount);
   }
 
  
