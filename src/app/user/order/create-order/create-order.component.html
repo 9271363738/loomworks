@@ -10,20 +10,14 @@
           <div>
             <div class="mb-2">
               <ng-select>
-                <ng-option  *ngFor="let item of user"  value="{{item._id}}" >{{item.user.name}}</ng-option>
+                <ng-option  *ngFor="let item of user"  value="{{item._id}}" aria-placeholder="Name">{{item.user.name}}</ng-option>
               </ng-select>
             </div>
           </div>
           <div>
             <div class="mb-2">
               <ng-select>
-                <ng-option value="" disabled="" selected>Select Category</ng-option>
-                <ng-option value="Customer Facing">Customer Facing</ng-option>
-                <ng-option value="Non-Customer Facing">Non-Customer Facing</ng-option>
-                <ng-option value="Technicians">Technicians</ng-option>
-                <ng-option value="Service Technicians">Service Technicians</ng-option>
-                <ng-option value="Drivers">Drivers</ng-option>
-                <ng-option value="Pantry Staff">Pantry Staff</ng-option>
+                <ng-option  *ngFor="let c of list" value="{{c._id}}" aria-placeholder="Catagory">{{c.Catagory}}</ng-option>
               </ng-select>
             </div>
           </div>
@@ -99,7 +93,7 @@
         <tbody>
           <tr *ngFor="let item of list let i =index">
               <td>
-                <input style="margin-left: 8px;" type="checkbox"  >
+                <input style="margin-left: 8px;" type="checkbox" #item (click)="myfun(item)">
               </td>
             <td> {{i+1}} </td>
             <td> {{item.brand}} </td>
@@ -136,7 +130,7 @@
 
 
   </div>
-  <button style="margin-left: 90%; background-color: rgb(141, 141, 209); border-radius: 5px; border: none; padding: 6px 20px; font-size: large;" (click)="next()">
+  <button style="margin-left: 90%; background-color: rgb(141, 141, 209); border-radius: 5px; border: none; padding: 6px 20px; font-size: large;" (click)="createOrders()">
     Next
   </button>
 
