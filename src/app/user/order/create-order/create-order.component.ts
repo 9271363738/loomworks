@@ -238,6 +238,7 @@ mydata(itemid:any){
 
 
   myfun(ele:any){
-    this.finalvalue=ele.totalAmount
+    this.finalvalue=ele
+    console.log(this.finalvalue)
   }
 }
