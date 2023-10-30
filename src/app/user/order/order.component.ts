@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2'
 @Component({
@@ -11,7 +12,7 @@ export class OrderComponent implements OnInit {
   CustomersData: any;
   masterSelected: any;
 
-  constructor(private modalService: NgbModal, private formBuilder: FormBuilder ) { }
+  constructor(private modalService: NgbModal, private formBuilder: FormBuilder,public route:Router ) { }
 
   ngOnInit(): void {
   }
@@ -30,5 +31,7 @@ export class OrderComponent implements OnInit {
       }
     });
   }
- 
+  CreateOrder(){
+    this.route.navigate(['/user/order/create-order/create'])
+  }
 }

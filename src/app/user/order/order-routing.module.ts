@@ -7,7 +7,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 const routes: Routes = [
   {
-    path:"create-order",
+    path:"create-order/:action",
     component:CreateOrderComponent
   },
    {
@@ -19,7 +19,7 @@ const routes: Routes = [
     component:OrderComponent
   },
   {
-    path:"order-summary/:id",
+    path:"order-summary",
     component:OrderSummaryComponent
   }
 ];

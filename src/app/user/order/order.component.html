@@ -4,15 +4,9 @@
         <div class="card"  id="invoiceList">
             <div class="card-header border-0">
                 <div class="d-flex align-items-center">
-<<<<<<< HEAD
-                    <h5 class="card-title mb-0 flex-grow-1">Orders</h5>
-                    <div class="flex-shrink-0">
-                        <a href="invoices/create" class="btn btn-danger"><i class="ri-add-line align-bottom me-1"></i> Create Order</a>
-=======
                     <h5 class="card-title mb-0 flex-grow-1"></h5>
                     <div class="flex-shrink-0">
-                        <a   class="btn btn-danger" [routerLink]="['/user/order/create-order']"><i class="ri-add-line align-bottom me-1" ></i> Create Order</a>
->>>>>>> 17a69288db6861d9c5ac7e190c4aa311de9c7660
+                        <a   class="btn btn-danger" (click)="CreateOrder()"><i class="ri-add-line align-bottom me-1" ></i> Create Order</a>
                     </div>
                 </div>
             </div>

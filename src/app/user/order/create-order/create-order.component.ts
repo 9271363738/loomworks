@@ -22,7 +22,7 @@ export class CreateOrderComponent implements OnInit {
   taxRate = 0.125;
   shippingRate = 65.0;
   discountRate = 0.15;
-action:any=true
+ action='create'
   userForm: any;
   user:any=[];
   CustomerNo:any="";
@@ -103,21 +103,20 @@ action:any=true
   }
 
 
-
+// main Function
 
   submit(){
     if(this.action == 'create'){
       this.next();
     }else{
+      this.route.navigate(['/user/order/order-summary'+this.action])
       this.edititom();
     }
-
-    this.route.navigate(['/admin/itemmaster'])
-    
+    this.route.navigate(['/user/order/order-summary'])
   }
 
 
-
+// Edited Order
 edititom(){
   const data=JSON.stringify({
     date:this.date,
@@ -130,6 +129,9 @@ edititom(){
         console.log(cdata)
   })
 }
+
+
+// Craeted Order
   next(){
     const data=JSON.stringify({
       date:this.date,
@@ -137,16 +139,23 @@ edititom(){
       customerNo:this.CustomerNo,
       poNo:this.PONo,
 
-     
-
     })
     console.log(data);
     this.api.createOrders(data).subscribe((cData:any)=>{
       console.log(cData)
 
     })
-    this.route.navigate(['/user/order/order-summary'])
+   
   }
+
+mydata(itemid:any){
+    this.route.navigate(['/user/order/order-summary'+itemid._id])
+}
+
+
+
+
+
 
   /**
    * Form data get
@@ -227,20 +236,6 @@ edititom(){
     this.quantity++;
   }
 
-
-  createOrders(){
-    let data=JSON.stringify({
-      customerNo:this.CustomerNo,
-      pono:this.PONo,
-      podate:this.poDate,
-      date:this.date,
-      finalAmount:this.finalvalue
-    })
-    console.log(data)
-    this.api.createOrders(data).subscribe((cdata:any)=>{
-      console.log(cdata)
-    })
-  }
 
   myfun(ele:any){
     this.finalvalue=ele.totalAmount

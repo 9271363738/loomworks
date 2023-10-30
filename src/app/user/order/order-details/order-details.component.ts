@@ -17,7 +17,7 @@ itemid:any;
     this.route.params.subscribe((res:any)=>{
       this.itemid=res.id
       console.log(this.itemid)
-    this.api.gatAllOrders({}).subscribe((cdata:any)=>{
+    this.api.gatAllOrders({_id:this.itemid}).subscribe((cdata:any)=>{
       this.list=cdata.orders[0]
       console.log(this.list)
     })
