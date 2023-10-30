@@ -9,35 +9,18 @@
         <div class="col-lg-4">
           <div>
             <div class="mb-2">
-              <ng-select>
-                <ng-option  *ngFor="let item of user"  value="{{item._id}}" aria-placeholder="Name">{{item.user.name}}</ng-option>
-              </ng-select>
-            </div>
-          </div>
-          <div>
-            <div class="mb-2">
-              <ng-select>
-                <ng-option  *ngFor="let c of list" value="{{c._id}}" aria-placeholder="Catagory">{{c.Catagory}}</ng-option>
+              <ng-select [(ngModel)]="Category" (change)="selectCategory($event)">
+                <ng-option value="" disabled="">Select Category</ng-option>
+                <ng-option value="Customer Facing">Customer Facing</ng-option>
+                                    <ng-option value="Non-Customer Facing">Non-Customer Facing</ng-option>
+                                    <ng-option value="Technicians">Technicians</ng-option>
+                                    <ng-option value="Service Technicians">Service Technicians</ng-option>
+                                    <ng-option value="Drivers Chauffeurs">Drivers Chauffeurs</ng-option>
+                                    <ng-option value="Pantry Staff">Pantry Staff</ng-option>
               </ng-select>
             </div>
           </div>
         </div><!--end col-->
-        <div class="col-lg-4 ms-auto">
-          <div class="mb-2">
-            <input type="date" class="form-control" id="registrationNumber" maxlength="12"
-              placeholder="Date" required  [(ngModel)]="date"/>
-          </div>
-          <div class="mb-2">
-            <input type="text" class="form-control" id="companyEmail" placeholder="Customer No" required [(ngModel)]="CustomerNo" />
-          </div>
-          <div class="mb-2">
-            <input type="date" class="form-control" id="companyWebsite" placeholder="PO Date" required [(ngModel)]="poDate" />
-          </div>
-          <div>
-            <input type="text" class="form-control" data-plugin="cleave-phone" id="compnayContactno"
-              placeholder="PO No" required [(ngModel)]="PONo" />
-          </div>
-        </div>
       </div><!--end row-->
 
     </div>
@@ -48,7 +31,7 @@
       <div class="row">
         <div class="col-lg-3 col-sm-6">
           <label for="invoicenoInput">Date</label>
-          <input type="date" class="form-control" id="invoicenoInput" placeholder="Date"  />
+          <input type="date" class="form-control" id="invoicenoInput" placeholder="Date"  [(ngModel)]="date"/>
         </div><!--end col-->
         <div class="col-lg-3 col-sm-6">
           <div>
@@ -112,7 +95,7 @@
               </div>
             </div>
             </td>
-            <td> {{item.price}} </td>
+            <td> {{item.updatePrice}} </td>
             <td> {{18}} </td>
             <td> {{item.gstAmount}} </td>
             <td> {{item.totalAmount}} </td>

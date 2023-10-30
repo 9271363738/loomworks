@@ -13,41 +13,25 @@
                             <tr class="table-active">
                                 <th scope="col" style="width: 50px;">SR.No</th>
                                 <th scope="col">Product Details</th>
+            
+                                <th scope="col">Sizes - Quantity</th>
                                 <th scope="col">Rate</th>
-                                <th scope="col">Quantity</th>
+                                <th>GST Amount</th>
                                 <th scope="col" class="text-end">Amount</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">01</th>
+                            <tr *ngFor="let ite of routesData.finalData;let i=index">
+                                <th scope="row">{{i+1}}</th>
                                 <td class="text-start">
-                                    <span class="fw-medium"></span>
-                                   
+                                    {{ite.name}}<br>{{ite.brand}}
                                 </td>
-                                <td></td>
-                                <td></td>
-                                <td class="text-end"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">02</th>
-                                <td class="text-start">
-                                    <span class="fw-medium"></span>
-                                   
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td class="text-end"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">03</th>
-                                <td class="text-start">
-                                    <span class="fw-medium"></span>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td class="text-end"></td>
-                            </tr>
+                                
+                                <td><span *ngFor="let data of ite.sizes"><span>{{data.name}} - {{data.quantity}}</span><br></span></td>
+                                <td>{{ite.updatePrice}}</td>
+                                <td>{{ite.gstAmount}}</td>
+                                <td class="text-end">{{ite.totalAmount}}</td>
+    
                             <tr class="border-top border-top-dashed mt-2">
                                 <td colspan="3"></td>
                                 <td colspan="2" class="fw-medium p-0">
@@ -55,34 +39,28 @@
                                         <tbody>
                                             <tr>
                                                 <td>Sub Total</td>
-                                                <td class="text-end"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Estimated Tax (12.5%)</td>
-                                                <td class="text-end"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Discount <small class="text-muted">(VELZON15)</small></td>
-                                                <td class="text-end"></td>
+                                                <td class="text-end">{{subtotal}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Shipping Charge</td>
-                                                <td class="text-end"></td>
+                                                <td class="text-end">
+                                                <input type="text" [(ngModel)]="shippingcharge" (keyup)="myfun1($event)"></td>
                                             </tr>
                                             <tr class="border-top border-top-dashed">
                                                 <th scope="row">Total Amount</th>
-                                                <td class="text-end"></td>
+                                                <td class="text-end">{{TotalAmount}}</td>
                                             </tr>
                                         </tbody>
                                     </table><!--end table-->
                                 </td>
-                            </tr>
+                            </tr> 
+                
                         </tbody>
                     </table><!--end table-->
                 </div>
                
                 <div class="hstack gap-2 justify-content-end d-print-none mt-4">
-                    <a href="javascript:window.print()" class="btn btn-success"><i class=" align-bottom me-1"></i> Place Order</a>
+                    <a (click)="next()" class="btn btn-success"><i class=" align-bottom me-1"></i> Place Order</a>
                    
                 </div>
             </div><!--end card-body-->

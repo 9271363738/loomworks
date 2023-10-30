@@ -13,17 +13,21 @@ export class OrderDetailsComponent implements OnInit {
 list:any=[]
 itemlist:any=[]
 itemid:any;
+finallist:any=[]
   ngOnInit(): void {
     this.route.params.subscribe((res:any)=>{
       this.itemid=res.id
       console.log(this.itemid)
     this.api.gatAllOrders({_id:this.itemid}).subscribe((cdata:any)=>{
       this.list=cdata.orders[0]
-      console.log(this.list)
-    })
-    this.api.getAllDealers({}).subscribe((cdata:any)=>{
-      this.itemlist=cdata.data
-      console.log(this.itemlist)
+
+      for(let i=0;i<this.list.items.length;i++){
+        this.list.items[i].quantity = 0
+        for(let j=0;j<this.list.items[i].size.length;j++){
+          this.list.items[i].quantity = this.list.items[i].quantity + this.list.items[i].size[j].quantity
+        }
+      }
+      
     })
   })
   }

@@ -35,18 +35,23 @@
                         <thead>
                             <tr class="table-active">
                                 <th scope="col" style="width: 50px;">SR.No</th>
-                                <th scope="col">Product Details</th>
+                                <th scope="col">Dealer Name</th>
+                                <th scope="col">Brand Name</th>
                                 <th scope="col">Rate</th>
                                 <th scope="col">Quantity</th>
+                                <th>GST</th>
                                 <th scope="col" class="text-end">Amount</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">01</th>
-                                <td>{{itemlist}}</td>
-                                <td></td>
-                                <td class="text-end"></td>
+                            <tr *ngFor="let a of list.items; let i=index">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{a.item.name}}</td>
+                                <td>{{a.item.brand}}</td>
+                                <td>{{a.item.price}}</td>
+                                <td>{{a.quantity}}</td>
+                                <td>{{a.gst}}</td>
+                                <td class="text-end">{{a.price}}</td>
                             </tr>
                             <tr class="border-top border-top-dashed mt-2">
                                 <td colspan="3"></td>
@@ -55,23 +60,15 @@
                                         <tbody>
                                             <tr>
                                                 <td>Sub Total:</td>
-                                                <td class="text-end"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Estimated Tax (12.5%):</td>
-                                                <td class="text-end"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Discount <small class="text-muted">()</small>:</td>
-                                                <td class="text-end"></td>
+                                                <td class="text-end">{{list.totalAmount}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Shipping Charge:</td>
-                                                <td class="text-end"></td>
+                                                <td class="text-end">{{list.shippingCharges}}</td>
                                             </tr>
                                             <tr class="border-top border-top-dashed">
                                                 <th scope="row">Total Amount:</th>
-                                                <td class="text-end"></td>
+                                                <td class="text-end">{{list.finalAmount}}</td>
                                             </tr>
                                         </tbody>
                                     </table><!--end table-->

@@ -9,13 +9,15 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 
 @NgModule({
   declarations: [
     OrderComponent,
     CreateOrderComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    OrderSummaryComponent
   ],
   imports: [
     CommonModule,

@@ -50,37 +50,24 @@
                         <table class="table align-middle table-nowrap" id="invoiceTable">
                             <thead class="text-muted">
                                 <tr>
-                                    <th scope="col" style="width: 50px;">
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option" >
-                                      </div>
-                                    </th>
                                     <th class="sort text-uppercase" data-sort="sr_id">SR.NO</th>
-                                    <th class="sort text-uppercase" data-sort="orderid">OrderID</th>
+                                    <th class="sort text-uppercase" data-sort="orderid">OrderNo</th>
                                     <th class="sort text-uppercase" data-sort="date">Date</th>
-                                    <th class="sort text-uppercase" data-sort="email">Total Qty</th>
                                     <th class="sort text-uppercase" data-sort="invoice_amount">Amount</th>
-                                    <th class="sort text-uppercase" data-sort="status">Order Status</th>
-                                    
+                            
+
                                 </tr>
                             </thead>
-                           
+                           <tbody>
+                            <tr *ngFor="let a of mylist;let i=index">
+                                <td class="sort text-uppercase" data-sort="orderid" (click)="fun1(a._id)">{{i+1}}</td>
+                                <td class="" data-sort="sr_id">{{a?.orderNo}}</td>
+                                <td class="sort text-uppercase" data-sort="date">{{a?.createdAt | date:"mediumDate"}}</td>
+                                <td class="sort text-uppercase" data-sort="orderid" *ngFor="let data of a?.size"><span>{{data?.name}} - {{data?.quantity}}</span><br>{{data?.quantity}}</td>
+                                <td class="sort text-uppercase" data-sort="invoice_amount">{{a?.totalAmount}}</td>
+                            </tr>
+                           </tbody>
                         </table>
-                    </div>
-                    <div class="row justify-content-md-between align-items-md-center mt-3">
-                      <div class="col-sm-12 col-md-5">
-                          <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">
-                              Showing
-                             
-                          </div>
-                      </div>
-                      <!-- Pagination -->
-                      <div class="col-sm-12 col-md-5">
-                          <div class="text-md-right float-md-end listjs-pagination">
-                           
-                          </div>
-                      </div>
-                      <!-- End Pagination -->
                     </div>
                 </div>
             </div>

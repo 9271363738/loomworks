@@ -52,17 +52,15 @@
                         </div>
                         <div class="col-lg-3 col-sm-12">
                             <div class="mb-3">
-                                <label for="phonenumberInput" class="form-label">Delers</label>
-                                <ng-select [(ngModel)]="Dealer" [ngModelOptions]="{standalone: true}">
-                                    <ng-option value="{{a._id}}" *ngFor="let a of dealers">{{a.user.name}}</ng-option>
-                                    
-                                </ng-select>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-12">
-                            <div class="mb-3">
                                 <label for="Input" class="form-label">Catagory</label>
-                                <input type="text" class="form-control" placeholder="Category" id="" [(ngModel)]="Catagory">
+                                <ng-select [(ngModel)]="Catagory">
+                                    <ng-option value="Customer Facing">Customer Facing</ng-option>
+                                    <ng-option value="Non-Customer Facing">Non-Customer Facing</ng-option>
+                                    <ng-option value="Technicians">Technicians</ng-option>
+                                    <ng-option value="Service Technicians">Service Technicians</ng-option>
+                                    <ng-option value="Drivers Chauffeurs">Drivers Chauffeurs</ng-option>
+                                    <ng-option value="Pantry Staff">Pantry Staff</ng-option>
+                                </ng-select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-12">
