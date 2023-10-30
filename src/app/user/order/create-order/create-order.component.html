@@ -10,20 +10,14 @@
           <div>
             <div class="mb-2">
               <ng-select>
-                <ng-option  *ngFor="let item of user"  value="{{item._id}}" >{{item.user.name}}</ng-option>
+                <ng-option  *ngFor="let item of user"  value="{{item._id}}" aria-placeholder="Name">{{item.user.name}}</ng-option>
               </ng-select>
             </div>
           </div>
           <div>
             <div class="mb-2">
               <ng-select>
-                <ng-option value="" disabled="" selected>Select Category</ng-option>
-                <ng-option value="Customer Facing">Customer Facing</ng-option>
-                <ng-option value="Non-Customer Facing">Non-Customer Facing</ng-option>
-                <ng-option value="Technicians">Technicians</ng-option>
-                <ng-option value="Service Technicians">Service Technicians</ng-option>
-                <ng-option value="Drivers">Drivers</ng-option>
-                <ng-option value="Pantry Staff">Pantry Staff</ng-option>
+                <ng-option  *ngFor="let c of list" value="{{c._id}}" aria-placeholder="Catagory">{{c.Catagory}}</ng-option>
               </ng-select>
             </div>
           </div>
@@ -99,7 +93,7 @@
         <tbody>
           <tr *ngFor="let item of list let i =index">
               <td>
-                <input style="margin-left: 8px;" type="checkbox" >
+                <input style="margin-left: 8px;" type="checkbox" #item (click)="myfun(item)">
               </td>
             <td> {{i+1}} </td>
             <td> {{item.brand}} </td>
@@ -111,17 +105,17 @@
             <div *ngFor="let list of item.sizes">
               <span>{{list.name}}</span>
               <div style="padding: 1px; margin-left: 10px;" class="input-step" *ngFor="let count of counter; let i =index">
-                  <button type="button" class="minus" (click)="decrement(i)" >–</button>
+                  <button type="button" class="minus" (click)="decrement(item,list)" >–</button>
                   <!-- <input type="number" style="width: 20px;"  min="1" max="99" value="1" [(ngModel)]="list.quantity[i]"  > -->
-               <span>{{counter[i]}}</span>
-                  <button type="button" class="plus" (click)="increment(i)">+</button>
+               <span>{{list.quantity==undefined ?1:list.quantity}}</span>
+                  <button type="button" class="plus" (click)="increment(item,list)">+</button>
               </div>
             </div>
             </td>
             <td> {{item.price}} </td>
             <td> {{18}} </td>
-            <td> 1 </td>
-            <td> 1 </td>
+            <td> {{item.gstAmount}} </td>
+            <td> {{item.totalAmount}} </td>
           
             <td>
     
@@ -136,7 +130,7 @@
 
 
   </div>
-  <button style="margin-left: 90%; background-color: rgb(141, 141, 209); border-radius: 5px; border: none; padding: 6px 20px; font-size: large;" (click)="next()">
+  <button style="margin-left: 90%; background-color: rgb(141, 141, 209); border-radius: 5px; border: none; padding: 6px 20px; font-size: large;" (click)="createOrders()">
     Next
   </button>
 

@@ -1,7 +1,7 @@
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ItemmasterComponent } from './../../../admin/itemmaster/itemmaster.component';
 import { User } from './../../../core/models/auth.models';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Validators, AbstractControl, FormBuilder, FormArray, FormGroup } from '@angular/forms';
 import { ApiService } from 'src/app/core/services/api.service';
 
@@ -22,7 +22,7 @@ export class CreateOrderComponent implements OnInit {
   taxRate = 0.125;
   shippingRate = 65.0;
   discountRate = 0.15;
-
+action:any=true
   userForm: any;
   user:any=[];
   CustomerNo:any="";
@@ -31,10 +31,10 @@ export class CreateOrderComponent implements OnInit {
   date:any="";
   list:any=[];
   num:any;
-  
-  
+  finalvalue:any=''
+  id:any;
 
-  constructor(private formBuilder: FormBuilder,private api:ApiService, public route:Router) { 
+  constructor(private formBuilder: FormBuilder,private api:ApiService, public route:Router,public ele:ElementRef,public routes:ActivatedRoute) { 
 
     this.userForm = this.formBuilder.group({
       items: this.formBuilder.array([
@@ -52,6 +52,7 @@ export class CreateOrderComponent implements OnInit {
 
 
   ngOnInit(): void {
+
     /**
     * BreadCrumb
     */
@@ -66,14 +67,69 @@ export class CreateOrderComponent implements OnInit {
     })
     this.api.gatAllItem({}).subscribe((cData:any)=>{
       this.list=cData.item
-     this.num=this.list[0].price;
-     
       console.log(this.list);
+      for(let i=0;i<=this.list.length;i++){
+        this.calculateTotalAmount(this.list[i])
+      }
     })
-    this.calculateTotalAmount()
-    
+
+
+
+    this.routes.params.subscribe((pData:any) => {
+      console.log(pData.action)
+      if(pData.action == 'create'){
+        this.action = 'create';
+
+      }else{
+        this.action = 'edit';
+        this.routes.queryParams.subscribe((eData:any) => {
+          this.id = eData.id;
+          this.api.gatAllOrders({_id:eData.id}).subscribe((cdata:any)=>{
+            // console.log(cdata.item[0])
+            this.CustomerNo = cdata.item[0].name;
+            this.poDate=cdata.item[0].poDate;
+            this.PONo=cdata.item[0].poNo;
+            this.date=cdata.item[0].Data,
+            this.finalvalue=cdata.item[0].finalvalue
+          })
+          console.log(eData)
+        
+      })
+  }
+
+  
+})
 
   }
+
+
+
+
+  submit(){
+    if(this.action == 'create'){
+      this.next();
+    }else{
+      this.edititom();
+    }
+
+    this.route.navigate(['/admin/itemmaster'])
+    
+  }
+
+
+
+edititom(){
+  const data=JSON.stringify({
+    date:this.date,
+    poDate:this.poDate,
+    customerNo:this.CustomerNo,
+    poNo:this.PONo,
+
+  })
+  this.api.updateOrders(this.id,data).subscribe((cdata:any)=>{
+        console.log(cdata)
+  })
+}
   next(){
     const data=JSON.stringify({
       date:this.date,
@@ -109,26 +165,33 @@ export class CreateOrderComponent implements OnInit {
 
   // Default
   counter :number[]=[0];
-  increment(index:number) {
-    this.counter[index]++;
+
+  increment(item:any,list:any) {
+        if(list.quantity==undefined){
+           list.quantity=1;
+            }
+    list.quantity++;
+    item.price=item.price*list.quantity
+    this.calculateTotalAmount(item) 
     
   }
 
-  decrement(index:number) {
-    if(this.counter[index]>0)
-    {
-    this.counter[index]--;
+  decrement(item:any,list:any) {
+    if(list.quantity==1)  {
+      list.quantity=1;
     }
+    list.quantity--;
+    item.price=item.price/list.quantity
+    this.calculateTotalAmount(item) 
    
   }
- calculateTotalAmount() {
-  
+ calculateTotalAmount(item:any) {     
     const gstRate = 18;
-    const gstAmount = (this.num * gstRate) / 100;
-    const totalAmount =  this.num+ gstAmount;
+    item.gstAmount = (item.price * gstRate) / 100;
+     this.finalvalue=item.totalAmount =  item.price+ item.gstAmount;
   
     // return totalAmount;
-    console.log(totalAmount);
+    console.log(item.totalAmount);
   }
 
  
@@ -162,5 +225,24 @@ export class CreateOrderComponent implements OnInit {
 
   increaseQuantity() {
     this.quantity++;
+  }
+
+
+  createOrders(){
+    let data=JSON.stringify({
+      customerNo:this.CustomerNo,
+      pono:this.PONo,
+      podate:this.poDate,
+      date:this.date,
+      finalAmount:this.finalvalue
+    })
+    console.log(data)
+    this.api.createOrders(data).subscribe((cdata:any)=>{
+      console.log(cdata)
+    })
+  }
+
+  myfun(ele:any){
+    this.finalvalue=ele.totalAmount
   }
 }
